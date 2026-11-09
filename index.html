@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>San del Pulpo | Ahorro en Comunidad</title>
+    <meta name="description" content="Únete al primer San digital con transparencia total. Ahorra en comunidad, gira la ruleta y recibe cuando te toca.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body { background-color: #0b1c3a; color: white; font-family: 'Segoe UI', Arial, sans-serif; overflow-x: hidden; }
+        
+        /* Animación de aparición suave (sin retardos) */
+        .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        /* Portada con la imagen del pulpo */
+        .hero {
+            position: relative;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background-image: url('el-san-del-pulpo.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 20px;
+        }
+        .hero-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom, rgba(11,28,58,0.6) 0%, rgba(11,28,58,0.95) 100%);
+        }
+        .hero-content { position: relative; z-index: 2; max-width: 800px; }
+        .hero h1 { font-size: clamp(2.5rem, 6vw, 4rem); color: #fbbf24; font-weight: 900; text-transform: uppercase; text-shadow: 2px 2px 10px rgba(0,0,0,0.8); line-height: 1.1; }
+        .hero p { font-size: clamp(1.2rem, 3vw, 1.5rem); color: #e2e8f0; margin-top: 15px; text-shadow: 1px 1px 5px rgba(0,0,0,0.8); }
+
+        /* Botones */
+        .btn-oro { background-color: #fbbf24; color: #0b1c3a; transition: transform 0.2s, background-color 0.2s; }
+        .btn-oro:hover { transform: scale(1.05); background-color: #eab308; }
+        .btn-wsp { background-color: #25d366; color: white; transition: transform 0.2s; }
+        .btn-wsp:hover { transform: scale(1.05); }
+
+        /* Tarjetas de los pasos */
+        .paso-card { background: rgba(17, 43, 79, 0.8); border: 2px solid #1e3a5f; border-radius: 20px; padding: 30px; transition: border-color 0.3s, transform 0.3s; }
+        .paso-card:hover { border-color: #fbbf24; transform: translateY(-5px); }
+    </style>
+</head>
+<body>
+
+    <!-- Menú de Navegación -->
+    <nav class="fixed w-full top-0 z-50 bg-[#112b4f]/90 backdrop-blur-md border-b-2 border-[#fbbf24] py-3 px-6 flex justify-between items-center shadow-lg">
+        <div class="text-xl font-bold text-white flex items-center gap-2">
+            <span class="text-2xl">🐙</span> SAN DEL PULPO
+        </div>
+        <!-- Botón menú hamburguesa -->
+        <button id="menu-btn" class="text-[#fbbf24] text-2xl focus:outline-none">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+
+    <!-- Menú Desplegable (Oculto por defecto) -->
+    <div id="mobile-menu" class="fixed top-16 right-4 w-64 bg-[#112b4f] border-2 border-[#fbbf24] rounded-xl shadow-2xl z-50 hidden flex-col overflow-hidden">
+        <a href="#inicio" class="block px-4 py-3 text-white hover:bg-[#1e3a5f] hover:text-[#fbbf24] transition border-b border-gray-700">Inicio</a>
+        <a href="#panel" class="block px-4 py-3 text-white hover:bg-[#1e3a5f] hover:text-[#fbbf24] transition border-b border-gray-700">Mi Panel</a>
+        <a href="#crear" class="block px-4 py-3 text-white hover:bg-[#1e3a5f] hover:text-[#fbbf24] transition border-b border-gray-700">Crear un San</a>
+        <a href="#unirme" class="block px-4 py-3 text-white hover:bg-[#1e3a5f] hover:text-[#fbbf24] transition border-b border-gray-700">Unirme a un San</a>
+        <a href="#recomendar" class="block px-4 py-3 text-white hover:bg-[#1e3a5f] hover:text-[#fbbf24] transition border-b border-gray-700">Recomendar y Ganar</a>
+        <button onclick="compartirSitio()" class="block w-full text-left px-4 py-3 text-white hover:bg-[#1e3a5f] hover:text-[#fbbf24] transition">Compartir</button>
+    </div>
+
+    <!-- Portada Principal -->
+    <div id="inicio" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content fade-in">
+            <h1 class="fuente-impacto">El San del Pulpo</h1>
+            <p class="mt-4">Ahorra en comunidad, recibe cuando te toca.</p>
+            <p class="text-gray-300 mt-2 text-lg">Transparente, seguro y con la confianza de tu comunidad.</p>
+            <a href="#unirme" class="mt-8 inline-block btn-oro px-8 py-4 rounded-full font-bold text-lg shadow-lg">
+                Quiero unirme al San
+            </a>
+        </div>
+    </div>
+
+    <!-- Contenido Principal -->
+    <div class="container mx-auto px-4 py-16 max-w-6xl">
+        
+        <!-- Sección ¿Cómo funciona? -->
+        <div class="text-center mb-12 fade-in">
+            <h2 class="text-3xl font-bold text-[#fbbf24] mb-4">¿Cómo funciona?</h2>
+            <p class="text-gray-300 max-w-2xl mx-auto">Únete al sistema de ahorro rotativo digital que está revolucionando la forma de hacer San en Venezuela.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Paso 1 -->
+            <div class="paso-card text-center fade-in">
+                <i class="fas fa-user-plus text-5xl text-[#fbbf24] mb-4"></i>
+                <h3 class="text-xl font-bold text-white mb-2">1. Regístrate</h3>
+                <p class="text-gray-300 text-sm">Crea tu cuenta con tu cédula y teléfono. Verificamos tu identidad para tu seguridad.</p>
+            </div>
+            <!-- Paso 2 -->
+            <div class="paso-card text-center fade-in" style="transition-delay: 0.1s;">
+                <i class="fas fa-users text-5xl text-[#fbbf24] mb-4"></i>
+                <h3 class="text-xl font-bold text-white mb-2">2. Elige tu San</h3>
+                <p class="text-gray-300 text-sm">Escoge el monto y la frecuencia. El sistema organiza los turnos de forma transparente.</p>
+            </div>
+            <!-- Paso 3 -->
+            <div class="paso-card text-center fade-in" style="transition-delay: 0.2s;">
+                <i class="fas fa-dharmachakra text-5xl text-[#fbbf24] mb-4"></i>
+                <h3 class="text-xl font-bold text-white mb-2">3. Gira y Recibe</h3>
+                <p class="text-gray-300 text-sm">La Ruleta del Pulpo decide quién recibe. Sin sorpresas, sin trampas. ¡Tú ganas!</p>
+            </div>
+        </div>
+
+        <!-- Sección de Recomendación -->
+        <div id="recomendar" class="mt-16 bg-[#112b4f] border-2 border-[#fbbf24] rounded-2xl p-8 text-center fade-in">
+            <h2 class="text-2xl font-bold text-[#fbbf24] mb-4">Recomienda y Gana</h2>
+            <p class="text-gray-300 mb-6 max-w-2xl mx-auto">Invita a tus amigos, familiares y vecinos. Por cada persona que se una con tu enlace, ganarás puntos que puedes canjear por premios exclusivos y cupones para El Giro del Pulpo.</p>
+            <a href="#" class="inline-block btn-wsp px-8 py-3 rounded-full font-bold text-white shadow-lg">
+                <i class="fab fa-whatsapp mr-2"></i> Compartir mi enlace
+            </a>
+        </div>
+
+        <!-- Botón de Contacto -->
+        <div class="text-center mt-16 fade-in">
+            <p class="text-gray-400 mb-4">¿Tienes dudas? Escríbenos</p>
+            <a href="https://wa.me/584227159158" target="_blank" class="inline-block btn-wsp px-8 py-3 rounded-full font-bold">
+                <i class="fab fa-whatsapp mr-2"></i> Contactar por WhatsApp
+            </a>
+        </div>
+
+        <!-- Footer -->
+        <footer class="text-center mt-16 py-8 border-t border-gray-700 text-sm text-gray-500 fade-in">
+            <p>© 2026 San del Pulpo. Todos los derechos reservados.</p>
+            <p class="mt-2">Hecho con ❤️ para nuestra comunidad.</p>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Menú hamburguesa
+        document.getElementById('menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Función para compartir
+        const NUEVA_URL = 'https://san-pulpo.guia-digital.com';
+        function compartirSitio() {
+            if (navigator.share) {
+                navigator.share({ title: 'San del Pulpo', text: 'Ahorra en comunidad', url: NUEVA_URL });
+            } else {
+                navigator.clipboard.writeText(NUEVA_URL);
+                alert('📋 Enlace copiado.');
+            }
+        }
+
+        // Animación de aparición (Intersection Observer)
+        document.addEventListener("DOMContentLoaded", function() {
+            const elements = document.querySelectorAll('.fade-in');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            elements.forEach(element => observer.observe(element));
+        });
+    </script>
+</body>
+</html>
