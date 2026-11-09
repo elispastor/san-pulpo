@@ -3,21 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>San del Pulpo | Ahorro en Comunidad</title>
-    <meta name="description" content="Únete al primer San digital con transparencia total. Ahorra en comunidad, gira la ruleta y recibe cuando te toca.">
+    <title>San del Pulpo | Ahorro y Comunidad</title>
+    <meta name="description" content="El primer San digital con transparencia total. Ahorra en comunidad, gira la ruleta y recibe cuando te toca. Únete al movimiento del Pulpo.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        body { background-color: #0b1c3a; color: white; font-family: 'Segoe UI', Arial, sans-serif; overflow-x: hidden; }
+        /* Estilos Base y Animaciones */
+        body { background-color: #0b1c3a; color: white; font-family: 'Segoe UI', Arial, sans-serif; overflow-x: hidden; scroll-behavior: smooth; }
+        .fuente-impacto { font-family: 'Arial Black', Impact, sans-serif; text-transform: uppercase; letter-spacing: 1px; }
         
-        /* Animación de aparición */
-        .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+        /* Animación de aparición (sin retardos molestos) */
+        .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-        /* Portada */
+        /* Hero Section */
         .hero {
             position: relative;
-            min-height: 80vh;
+            min-height: 90vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -25,191 +27,204 @@
             background-image: url('el-san-del-pulpo.jpg');
             background-size: cover;
             background-position: center;
+            background-attachment: fixed; /* Efecto Parallax */
             padding: 20px;
         }
         .hero-overlay {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(to bottom, rgba(11,28,58,0.6) 0%, rgba(11,28,58,0.95) 100%);
+            background: linear-gradient(to bottom, rgba(11,28,58,0.5) 0%, rgba(11,28,58,0.95) 100%);
         }
-        .hero-content { position: relative; z-index: 2; max-width: 800px; }
-        .hero h1 { font-size: clamp(2.5rem, 6vw, 4rem); color: #fbbf24; font-weight: 900; text-transform: uppercase; text-shadow: 2px 2px 10px rgba(0,0,0,0.8); line-height: 1.1; }
-        .hero p { font-size: clamp(1.2rem, 3vw, 1.5rem); color: #e2e8f0; margin-top: 15px; text-shadow: 1px 1px 5px rgba(0,0,0,0.8); }
+        .hero-content { position: relative; z-index: 2; max-width: 900px; }
+        .hero h1 { font-size: clamp(2.5rem, 7vw, 5rem); color: #fbbf24; font-weight: 900; text-shadow: 3px 3px 15px rgba(0,0,0,0.9); line-height: 1.1; }
+        .hero p { font-size: clamp(1.1rem, 3vw, 1.6rem); color: #e2e8f0; margin-top: 20px; text-shadow: 1px 1px 8px rgba(0,0,0,0.8); }
 
         /* Botones */
-        .btn-oro { background-color: #fbbf24; color: #0b1c3a; transition: transform 0.2s, background-color 0.2s; }
-        .btn-oro:hover { transform: scale(1.05); background-color: #eab308; }
-        .btn-wsp { background-color: #25d366; color: white; transition: transform 0.2s; }
+        .btn-oro { background-color: #fbbf24; color: #0b1c3a; transition: transform 0.3s, box-shadow 0.3s; }
+        .btn-oro:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(251, 191, 36, 0.4); }
+        .btn-wsp { background-color: #25d366; color: white; transition: transform 0.3s; }
         .btn-wsp:hover { transform: scale(1.05); }
 
-        /* Tarjetas de los pasos */
-        .paso-card { background: rgba(17, 43, 79, 0.8); border: 2px solid #1e3a5f; border-radius: 20px; padding: 30px; transition: border-color 0.3s, transform 0.3s; }
-        .paso-card:hover { border-color: #fbbf24; transform: translateY(-5px); }
+        /* Tarjetas y Contenedores */
+        .card-seccion { background: rgba(17, 43, 79, 0.8); border: 2px solid #1e3a5f; border-radius: 20px; padding: 30px; transition: border-color 0.3s, transform 0.3s; }
+        .card-seccion:hover { border-color: #fbbf24; transform: translateY(-5px); }
+        
+        /* Carrusel (Puerta Giratoria) */
+        .carrusel-giratorio { position: relative; width: 100%; max-width: 450px; margin: 0 auto; overflow: hidden; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.6); border: 3px solid #fbbf24; background: #000; }
+        .carrusel-giratorio-inner { display: flex; transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1); }
+        .carrusel-giratorio-slide { min-width: 100%; flex-shrink: 0; }
+        .carrusel-giratorio-slide img { width: 100%; height: auto; display: block; object-fit: cover; }
+        .carrusel-indicadores { position: absolute; bottom: 15px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; background: rgba(0,0,0,0.6); padding: 5px 12px; border-radius: 30px; }
+        .indicador { width: 12px; height: 12px; background: rgba(255,255,255,0.4); border-radius: 50%; cursor: pointer; }
+        .indicador.activo { background: #fbbf24; }
 
-        /* CARRUSEL PUERTA GIRATORIA (CUADRADO PERFECTO) */
-        .carrusel-giratorio {
-            position: relative;
-            width: 90%;
-            max-width: 400px;
-            aspect-ratio: 1/1; /* Cuadrado perfecto */
-            margin: 40px auto;
-            overflow: hidden;
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
-            border: 3px solid #fbbf24;
-            background: #000;
-        }
-        .carrusel-giratorio-inner {
-            display: flex;
-            height: 100%;
-            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); /* Efecto puerta giratoria suave */
-        }
-        .carrusel-giratorio-slide {
-            min-width: 100%;
-            height: 100%;
-            flex-shrink: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .carrusel-giratorio-slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            background: #000;
-            display: block;
-        }
-        .carrusel-giratorio-puntos {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 15px;
-        }
-        .carrusel-giratorio-puntos .punto {
-            width: 12px;
-            height: 12px;
-            background: rgba(255,255,255,0.3);
-            border-radius: 50%;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        .carrusel-giratorio-puntos .punto.active {
-            background: #fbbf24;
-            transform: scale(1.2);
-        }
+        /* Acordeón FAQ */
+        .faq-item { border-bottom: 1px solid #1e3a5f; }
+        .faq-pregunta { cursor: pointer; padding: 20px 0; font-size: 1.1rem; font-weight: bold; display: flex; justify-content: space-between; align-items: center; transition: color 0.3s; }
+        .faq-pregunta:hover { color: #fbbf24; }
+        .faq-respuesta { max-height: 0; overflow: hidden; transition: max-height 0.5s ease-in-out; color: #a0c4e8; }
+        .faq-respuesta.abierta { max-height: 300px; }
     </style>
 </head>
 <body>
 
-    <!-- Menú de Navegación -->
+    <!-- Navegación -->
     <nav class="fixed w-full top-0 z-50 bg-[#112b4f]/90 backdrop-blur-md border-b-2 border-[#fbbf24] py-3 px-6 flex justify-between items-center shadow-lg">
         <div class="text-xl font-bold text-white flex items-center gap-2">
             <span class="text-2xl">🐙</span> SAN DEL PULPO
         </div>
-        <button id="menu-btn" class="text-[#fbbf24] text-2xl focus:outline-none">
-            <i class="fas fa-bars"></i>
-        </button>
+        <div class="hidden md:flex gap-6 text-sm font-semibold text-white">
+            <a href="#como-funciona" class="hover:text-[#fbbf24] transition">Cómo Funciona</a>
+            <a href="#historias" class="hover:text-[#fbbf24] transition">Historias</a>
+            <a href="#preguntas" class="hover:text-[#fbbf24] transition">Preguntas</a>
+            <a href="#unirme" class="bg-[#fbbf24] text-[#0b1c3a] px-5 py-2 rounded-full hover:bg-[#eab308] transition">Unirme</a>
+        </div>
+        <button id="menu-btn" class="md:hidden text-[#fbbf24] text-2xl"><i class="fas fa-bars"></i></button>
     </nav>
 
-    <!-- Menú Desplegable -->
-    <div id="mobile-menu" class="fixed top-16 right-4 w-64 bg-[#112b4f] border-2 border-[#fbbf24] rounded-xl shadow-2xl z-50 hidden flex-col overflow-hidden">
-        <a href="#inicio" class="block px-4 py-3 text-white hover:bg-[#1e3a5f] hover:text-[#fbbf24] transition border-b border-gray-700">Inicio</a>
-        <a href="#panel" class="block px-4 py-3 text-white hover:bg-[#1e3a5f] hover:text-[#fbbf24] transition border-b border-gray-700">Mi Panel</a>
-        <a href="#crear" class="block px-4 py-3 text-white hover:bg-[#1e3a5f] hover:text-[#fbbf24] transition border-b border-gray-700">Crear un San</a>
-        <a href="#unirme" class="block px-4 py-3 text-white hover:bg-[#1e3a5f] hover:text-[#fbbf24] transition border-b border-gray-700">Unirme a un San</a>
-        <a href="#recomendar" class="block px-4 py-3 text-white hover:bg-[#1e3a5f] hover:text-[#fbbf24] transition border-b border-gray-700">Recomendar y Ganar</a>
-        <button onclick="compartirSitio()" class="block w-full text-left px-4 py-3 text-white hover:bg-[#1e3a5f] hover:text-[#fbbf24] transition">Compartir</button>
-    </div>
-
-    <!-- Portada Principal -->
+    <!-- Hero -->
     <div id="inicio" class="hero">
         <div class="hero-overlay"></div>
         <div class="hero-content fade-in">
             <h1 class="fuente-impacto">El San del Pulpo</h1>
-            <p class="mt-4">Ahorra en comunidad, recibe cuando te toca.</p>
-            <p class="text-gray-300 mt-2 text-lg">Transparente, seguro y con la confianza de tu comunidad.</p>
-            <a href="#unirme" class="mt-8 inline-block btn-oro px-8 py-4 rounded-full font-bold text-lg shadow-lg">
+            <p>El ahorro que reparte confianza. Transparente, seguro y en comunidad.</p>
+            <a href="#unirme" class="mt-8 inline-block btn-oro px-10 py-4 rounded-full font-bold text-lg">
                 Quiero unirme al San
             </a>
         </div>
     </div>
 
-    <!-- Carrusel Cuadrado -->
-    <div class="carrusel-giratorio" id="carruselGiratorio">
-        <div class="carrusel-giratorio-inner" id="carruselGiratorioInner"></div>
-        <div class="carrusel-giratorio-puntos" id="indicadoresGiratorio"></div>
-    </div>
-
     <!-- Contenido Principal -->
     <div class="container mx-auto px-4 py-16 max-w-6xl">
-        
-        <!-- Sección ¿Cómo funciona? -->
-        <div class="text-center mb-12 fade-in">
-            <h2 class="text-3xl font-bold text-[#fbbf24] mb-4">¿Cómo funciona?</h2>
-            <p class="text-gray-300 max-w-2xl mx-auto">Únete al sistema de ahorro rotativo digital que está revolucionando la forma de hacer San en Venezuela.</p>
-        </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="paso-card text-center fade-in">
-                <i class="fas fa-user-plus text-5xl text-[#fbbf24] mb-4"></i>
-                <h3 class="text-xl font-bold text-white mb-2">1. Regístrate</h3>
-                <p class="text-gray-300 text-sm">Crea tu cuenta con tu cédula y teléfono. Verificamos tu identidad para tu seguridad.</p>
-            </div>
-            <div class="paso-card text-center fade-in" style="transition-delay: 0.1s;">
-                <i class="fas fa-users text-5xl text-[#fbbf24] mb-4"></i>
-                <h3 class="text-xl font-bold text-white mb-2">2. Elige tu San</h3>
-                <p class="text-gray-300 text-sm">Escoge el monto y la frecuencia. El sistema organiza los turnos de forma transparente.</p>
-            </div>
-            <div class="paso-card text-center fade-in" style="transition-delay: 0.2s;">
-                <i class="fas fa-dharmachakra text-5xl text-[#fbbf24] mb-4"></i>
-                <h3 class="text-xl font-bold text-white mb-2">3. Gira y Recibe</h3>
-                <p class="text-gray-300 text-sm">La Ruleta del Pulpo decide quién recibe. Sin sorpresas, sin trampas. ¡Tú ganas!</p>
+        <!-- Carrusel de Imágenes -->
+        <div class="mb-20 fade-in">
+            <div class="carrusel-giratorio" id="carruselGiratorio">
+                <div class="carrusel-giratorio-inner" id="carruselInner">
+                    <div class="carrusel-giratorio-slide"><img src="1.jpg" alt="San del Pulpo 1"></div>
+                    <div class="carrusel-giratorio-slide"><img src="2.jpg" alt="San del Pulpo 2"></div>
+                    <div class="carrusel-giratorio-slide"><img src="3.jpg" alt="San del Pulpo 3"></div>
+                </div>
+                <div class="carrusel-indicadores" id="indicadores"></div>
             </div>
         </div>
 
-        <!-- Sección de Recomendación -->
-        <div id="recomendar" class="mt-16 bg-[#112b4f] border-2 border-[#fbbf24] rounded-2xl p-8 text-center fade-in">
-            <h2 class="text-2xl font-bold text-[#fbbf24] mb-4">Recomienda y Gana</h2>
-            <p class="text-gray-300 mb-6 max-w-2xl mx-auto">Invita a tus amigos, familiares y vecinos. Por cada persona que se una con tu enlace, ganarás puntos que puedes canjear por premios exclusivos y cupones para El Giro del Pulpo.</p>
-            <a href="#" class="inline-block btn-wsp px-8 py-3 rounded-full font-bold text-white shadow-lg">
-                <i class="fab fa-whatsapp mr-2"></i> Compartir mi enlace
+        <!-- Cómo Funciona -->
+        <div id="como-funciona" class="mb-20 fade-in">
+            <h2 class="text-3xl md:text-4xl font-bold text-[#fbbf24] text-center mb-10">¿Cómo funciona el San del Pulpo?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="card-seccion text-center">
+                    <i class="fas fa-user-plus text-4xl text-[#fbbf24] mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">1. Regístrate</h3>
+                    <p class="text-gray-300 text-sm">Crea tu cuenta y verifica tu identidad de forma segura.</p>
+                </div>
+                <div class="card-seccion text-center">
+                    <i class="fas fa-users text-4xl text-[#fbbf24] mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">2. Únete a un Grupo</h3>
+                    <p class="text-gray-300 text-sm">Elige un San con personas de tu comunidad y confianza.</p>
+                </div>
+                <div class="card-seccion text-center">
+                    <i class="fas fa-dharmachakra text-4xl text-[#fbbf24] mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">3. Gira y Recibe</h3>
+                    <p class="text-gray-300 text-sm">La Ruleta del Pulpo decide el turno. ¡Todos ganan!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Historias (Espacio para Testimonios) -->
+        <div id="historias" class="mb-20 fade-in">
+            <h2 class="text-3xl md:text-4xl font-bold text-[#fbbf24] text-center mb-10">Historias de Nuestra Comunidad</h2>
+            <p class="text-center text-gray-400 mb-8">Pronto verás aquí las historias reales de personas que están transformando su economía con el San del Pulpo.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Espacio para Testimonios (Placeholder) -->
+                <div class="bg-[#112b4f] rounded-2xl p-6 text-center border border-[#1e3a5f]">
+                    <div class="w-20 h-20 bg-gray-700 rounded-full mx-auto mb-4"></div>
+                    <h4 class="font-bold text-white">Tu Nombre Aquí</h4>
+                    <p class="text-sm text-gray-400 mt-2">"El San del Pulpo me ayudó a cumplir mi meta."</p>
+                </div>
+                <div class="bg-[#112b4f] rounded-2xl p-6 text-center border border-[#1e3a5f]">
+                    <div class="w-20 h-20 bg-gray-700 rounded-full mx-auto mb-4"></div>
+                    <h4 class="font-bold text-white">Tu Nombre Aquí</h4>
+                    <p class="text-sm text-gray-400 mt-2">"Es la forma más segura de ahorrar en comunidad."</p>
+                </div>
+                <div class="bg-[#112b4f] rounded-2xl p-6 text-center border border-[#1e3a5f]">
+                    <div class="w-20 h-20 bg-gray-700 rounded-full mx-auto mb-4"></div>
+                    <h4 class="font-bold text-white">Tu Nombre Aquí</h4>
+                    <p class="text-sm text-gray-400 mt-2">"Gracias al Pulpo, ya no le tengo miedo a los morosos."</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Preguntas Frecuentes -->
+        <div id="preguntas" class="mb-20 fade-in">
+            <h2 class="text-3xl md:text-4xl font-bold text-[#fbbf24] text-center mb-10">Preguntas Frecuentes</h2>
+            <div class="max-w-3xl mx-auto">
+                <div class="faq-item">
+                    <div class="faq-pregunta" onclick="toggleFaq(this)">
+                        ¿Qué es el San del Pulpo? <i class="fas fa-chevron-down text-sm"></i>
+                    </div>
+                    <div class="faq-respuesta">
+                        <p class="pb-4">Es un sistema de ahorro rotativo digital donde un grupo de personas aporta una cuota fija y, por turnos, cada uno recibe el monto total. La diferencia es que nosotros usamos la tecnología para garantizar la transparencia y la seguridad.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-pregunta" onclick="toggleFaq(this)">
+                        ¿Es legal y seguro? <i class="fas fa-chevron-down text-sm"></i>
+                    </div>
+                    <div class="faq-respuesta">
+                        <p class="pb-4">Sí. No somos una pirámide ni una captación ilegal de dinero. El dinero se mueve directamente entre los participantes. Además, implementamos un depósito de garantía para proteger a todos los miembros del grupo.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-pregunta" onclick="toggleFaq(this)">
+                        ¿Cómo me aseguran que recibiré mi turno? <i class="fas fa-chevron-down text-sm"></i>
+                    </div>
+                    <div class="faq-respuesta">
+                        <p class="pb-4">Cada participante deja un depósito de garantía al unirse. Si alguien no paga, ese depósito cubre el faltante para que el ganador reciba su dinero completo. Así la comunidad se protege a sí misma.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-pregunta" onclick="toggleFaq(this)">
+                        ¿Cuánto cuesta usar la plataforma? <i class="fas fa-chevron-down text-sm"></i>
+                    </div>
+                    <div class="faq-respuesta">
+                        <p class="pb-4">Cobramos una comisión del 15% sobre el monto total del San. Ese porcentaje se usa para mantener la plataforma, cubrir la garantía y financiar los premios de la Ruleta del Pulpo.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-pregunta" onclick="toggleFaq(this)">
+                        ¿Qué pasa si alguien no paga? <i class="fas fa-chevron-down text-sm"></i>
+                    </div>
+                    <div class="faq-respuesta">
+                        <p class="pb-4">Se usa su depósito de garantía para cubrir la cuota faltante. Esa persona queda bloqueada de la plataforma hasta que reponga el dinero.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Llamado a la Acción Final -->
+        <div id="unirme" class="text-center fade-in py-10">
+            <h2 class="text-3xl font-bold text-white mb-4">¿Listo para dar el primer paso?</h2>
+            <p class="text-gray-300 mb-8 max-w-xl mx-auto">Únete a la comunidad del Pulpo y empieza a ahorrar de forma segura y transparente.</p>
+            <a href="https://wa.me/584227159158" target="_blank" class="btn-oro px-10 py-4 rounded-full font-bold text-lg inline-block">
+                Quiero registrarme ahora
             </a>
         </div>
 
-        <!-- Botón de Contacto -->
-        <div class="text-center mt-16 fade-in">
-            <p class="text-gray-400 mb-4">¿Tienes dudas? Escríbenos</p>
-            <a href="https://wa.me/584227159158" target="_blank" class="inline-block btn-wsp px-8 py-3 rounded-full font-bold">
-                <i class="fab fa-whatsapp mr-2"></i> Contactar por WhatsApp
-            </a>
-        </div>
-
-        <!-- Footer -->
-        <footer class="text-center mt-16 py-8 border-t border-gray-700 text-sm text-gray-500 fade-in">
-            <p>© 2026 San del Pulpo. Todos los derechos reservados.</p>
-            <p class="mt-2">Hecho con ❤️ para nuestra comunidad.</p>
-        </footer>
     </div>
+
+    <!-- Footer -->
+    <footer class="bg-[#112b4f] py-10 text-center border-t border-[#1e3a5f]">
+        <div class="container mx-auto px-4">
+            <p class="text-2xl font-bold text-white mb-4">🐙 SAN DEL PULPO</p>
+            <p class="text-gray-400 text-sm mb-2">© 2026 San del Pulpo. Todos los derechos reservados.</p>
+            <p class="text-gray-500 text-xs">Hecho con ❤️ para nuestra comunidad.</p>
+        </div>
+    </footer>
 
     <!-- Scripts -->
     <script>
-        // Menú hamburguesa
-        document.getElementById('menu-btn').addEventListener('click', function() {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
-        });
-
-        // Compartir
-        const NUEVA_URL = 'https://san-pulpo.guia-digital.com';
-        function compartirSitio() {
-            if (navigator.share) {
-                navigator.share({ title: 'San del Pulpo', text: 'Ahorra en comunidad', url: NUEVA_URL });
-            } else {
-                navigator.clipboard.writeText(NUEVA_URL);
-                alert('📋 Enlace copiado.');
-            }
-        }
-
-        // Animación de aparición
+        // Animación de aparición (Intersection Observer)
         document.addEventListener("DOMContentLoaded", function() {
             const elements = document.querySelectorAll('.fade-in');
             const observer = new IntersectionObserver((entries) => {
@@ -223,55 +238,61 @@
             elements.forEach(element => observer.observe(element));
         });
 
-        // --- CARRUSEL PUERTA GIRATORIA (CUADRADO) ---
-        const totalImagenes = 3; // Cambia este número si tienes más
-        let indiceActual = 0;
+        // Lógica del Carrusel Puerta Giratoria
+        let index = 0;
+        const slides = document.querySelectorAll('.carrusel-giratorio-slide');
+        const totalSlides = slides.length;
+        const indicadoresContainer = document.getElementById('indicadores');
 
-        function iniciarCarruselGiratorio() {
-            const contenedor = document.getElementById('carruselGiratorioInner');
-            const puntosContenedor = document.getElementById('indicadoresGiratorio');
-            if (!contenedor || !puntosContenedor) return;
-
-            let html = '';
-            let puntos = '';
-
-            for (let i = 1; i <= totalImagenes; i++) {
-                // Asumimos que las imágenes se llaman 1.jpg, 2.jpg, 3.jpg
-                html += `
-                    <div class="carrusel-giratorio-slide">
-                        <img src="${i}.jpg" alt="San del Pulpo ${i}">
-                    </div>
-                `;
-                puntos += `<span class="punto ${i === 1 ? 'active' : ''}" onclick="irAlSlide(${i-1})"></span>`;
-            }
-
-            contenedor.innerHTML = html;
-            puntosContenedor.innerHTML = puntos;
-
-            setInterval(() => moverCarrusel(1), 3500); // Cambia cada 3.5 segundos
-        }
-
-        function moverCarrusel(direccion) {
-            indiceActual = (indiceActual + direccion + totalImagenes) % totalImagenes;
-            actualizarCarrusel();
-        }
-
-        function irAlSlide(indice) {
-            indiceActual = indice;
-            actualizarCarrusel();
+        // Crear indicadores
+        for (let i = 0; i < totalSlides; i++) {
+            const ind = document.createElement('div');
+            ind.classList.add('indicador');
+            if (i === 0) ind.classList.add('activo');
+            ind.addEventListener('click', () => irASlide(i));
+            indicadoresContainer.appendChild(ind);
         }
 
         function actualizarCarrusel() {
-            const inner = document.getElementById('carruselGiratorioInner');
-            if (inner) {
-                inner.style.transform = `translateX(-${indiceActual * 100}%)`;
-            }
-            document.querySelectorAll('.carrusel-giratorio-puntos .punto').forEach((punto, i) => {
-                punto.classList.toggle('active', i === indiceActual);
+            const inner = document.getElementById('carruselInner');
+            inner.style.transform = `translateX(-${index * 100}%)`;
+            document.querySelectorAll('.indicador').forEach((ind, i) => {
+                ind.classList.toggle('activo', i === index);
             });
         }
 
-        document.addEventListener('DOMContentLoaded', iniciarCarruselGiratorio);
+        function irASlide(i) {
+            index = i;
+            actualizarCarrusel();
+        }
+
+        // Auto-avance
+        setInterval(() => {
+            index = (index + 1) % totalSlides;
+            actualizarCarrusel();
+        }, 4000);
+
+        // Lógica del Acordeón FAQ
+        function toggleFaq(element) {
+            const respuesta = element.nextElementSibling;
+            const icono = element.querySelector('i');
+            
+            // Cerrar otros abiertos
+            document.querySelectorAll('.faq-respuesta').forEach(res => {
+                if (res !== respuesta && res.classList.contains('abierta')) {
+                    res.classList.remove('abierta');
+                    res.previousElementSibling.querySelector('i').style.transform = 'rotate(0deg)';
+                }
+            });
+
+            // Abrir/Cerrar el actual
+            respuesta.classList.toggle('abierta');
+            if (respuesta.classList.contains('abierta')) {
+                icono.style.transform = 'rotate(180deg)';
+            } else {
+                icono.style.transform = 'rotate(0deg)';
+            }
+        }
     </script>
 </body>
 </html>
