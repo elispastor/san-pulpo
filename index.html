@@ -10,11 +10,11 @@
     <style>
         body { background-color: #0b1c3a; color: white; font-family: 'Segoe UI', Arial, sans-serif; overflow-x: hidden; }
         
-        /* Animación de aparición suave (sin retardos) */
+        /* Animación de aparición */
         .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-        /* Portada con la imagen del pulpo */
+        /* Portada */
         .hero {
             position: relative;
             min-height: 80vh;
@@ -46,48 +46,54 @@
         .paso-card { background: rgba(17, 43, 79, 0.8); border: 2px solid #1e3a5f; border-radius: 20px; padding: 30px; transition: border-color 0.3s, transform 0.3s; }
         .paso-card:hover { border-color: #fbbf24; transform: translateY(-5px); }
 
-        /* CARRUSEL DEL PULPO */
-        .carrusel-pulpo-container {
-            max-width: 800px;
+        /* CARRUSEL PUERTA GIRATORIA (CUADRADO PERFECTO) */
+        .carrusel-giratorio {
+            position: relative;
+            width: 90%;
+            max-width: 400px;
+            aspect-ratio: 1/1; /* Cuadrado perfecto */
             margin: 40px auto;
-            padding: 0 20px;
-            position: relative;
-        }
-        .carrusel-pulpo {
-            position: relative;
-            width: 100%;
-            aspect-ratio: 16/9; /* Rectangular */
-            border-radius: 20px;
             overflow: hidden;
+            border-radius: 20px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.6);
             border: 3px solid #fbbf24;
+            background: #000;
         }
-        .carrusel-pulpo-slide {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background-size: cover;
-            background-position: center;
-            opacity: 0;
-            transition: opacity 0.8s ease-in-out; /* Efecto de desvanecido */
+        .carrusel-giratorio-inner {
+            display: flex;
+            height: 100%;
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); /* Efecto puerta giratoria suave */
         }
-        .carrusel-pulpo-slide.active {
-            opacity: 1;
+        .carrusel-giratorio-slide {
+            min-width: 100%;
+            height: 100%;
+            flex-shrink: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
-        .carrusel-pulpo-indicadores {
+        .carrusel-giratorio-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background: #000;
+            display: block;
+        }
+        .carrusel-giratorio-puntos {
             display: flex;
             justify-content: center;
             gap: 10px;
             margin-top: 15px;
         }
-        .dot {
-            width: 12px; height: 12px;
+        .carrusel-giratorio-puntos .punto {
+            width: 12px;
+            height: 12px;
             background: rgba(255,255,255,0.3);
             border-radius: 50%;
             cursor: pointer;
             transition: 0.3s;
         }
-        .dot.active {
+        .carrusel-giratorio-puntos .punto.active {
             background: #fbbf24;
             transform: scale(1.2);
         }
@@ -100,13 +106,12 @@
         <div class="text-xl font-bold text-white flex items-center gap-2">
             <span class="text-2xl">🐙</span> SAN DEL PULPO
         </div>
-        <!-- Botón menú hamburguesa -->
         <button id="menu-btn" class="text-[#fbbf24] text-2xl focus:outline-none">
             <i class="fas fa-bars"></i>
         </button>
     </nav>
 
-    <!-- Menú Desplegable (Oculto por defecto) -->
+    <!-- Menú Desplegable -->
     <div id="mobile-menu" class="fixed top-16 right-4 w-64 bg-[#112b4f] border-2 border-[#fbbf24] rounded-xl shadow-2xl z-50 hidden flex-col overflow-hidden">
         <a href="#inicio" class="block px-4 py-3 text-white hover:bg-[#1e3a5f] hover:text-[#fbbf24] transition border-b border-gray-700">Inicio</a>
         <a href="#panel" class="block px-4 py-3 text-white hover:bg-[#1e3a5f] hover:text-[#fbbf24] transition border-b border-gray-700">Mi Panel</a>
@@ -129,18 +134,10 @@
         </div>
     </div>
 
-    <!-- CARRUSEL DEL PULPO -->
-    <div class="carrusel-pulpo-container">
-        <div class="carrusel-pulpo" id="carruselPulpo">
-            <div class="carrusel-pulpo-slide active" style="background-image: url('1.jpg');"></div>
-            <div class="carrusel-pulpo-slide" style="background-image: url('2.jpg');"></div>
-            <div class="carrusel-pulpo-slide" style="background-image: url('3.jpg');"></div>
-        </div>
-        <div class="carrusel-pulpo-indicadores" id="indicadoresPulpo">
-            <span class="dot active"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-        </div>
+    <!-- Carrusel Cuadrado -->
+    <div class="carrusel-giratorio" id="carruselGiratorio">
+        <div class="carrusel-giratorio-inner" id="carruselGiratorioInner"></div>
+        <div class="carrusel-giratorio-puntos" id="indicadoresGiratorio"></div>
     </div>
 
     <!-- Contenido Principal -->
@@ -153,19 +150,16 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <!-- Paso 1 -->
             <div class="paso-card text-center fade-in">
                 <i class="fas fa-user-plus text-5xl text-[#fbbf24] mb-4"></i>
                 <h3 class="text-xl font-bold text-white mb-2">1. Regístrate</h3>
                 <p class="text-gray-300 text-sm">Crea tu cuenta con tu cédula y teléfono. Verificamos tu identidad para tu seguridad.</p>
             </div>
-            <!-- Paso 2 -->
             <div class="paso-card text-center fade-in" style="transition-delay: 0.1s;">
                 <i class="fas fa-users text-5xl text-[#fbbf24] mb-4"></i>
                 <h3 class="text-xl font-bold text-white mb-2">2. Elige tu San</h3>
                 <p class="text-gray-300 text-sm">Escoge el monto y la frecuencia. El sistema organiza los turnos de forma transparente.</p>
             </div>
-            <!-- Paso 3 -->
             <div class="paso-card text-center fade-in" style="transition-delay: 0.2s;">
                 <i class="fas fa-dharmachakra text-5xl text-[#fbbf24] mb-4"></i>
                 <h3 class="text-xl font-bold text-white mb-2">3. Gira y Recibe</h3>
@@ -204,7 +198,7 @@
             document.getElementById('mobile-menu').classList.toggle('hidden');
         });
 
-        // Función para compartir
+        // Compartir
         const NUEVA_URL = 'https://san-pulpo.guia-digital.com';
         function compartirSitio() {
             if (navigator.share) {
@@ -215,7 +209,7 @@
             }
         }
 
-        // Animación de aparición (Intersection Observer)
+        // Animación de aparición
         document.addEventListener("DOMContentLoaded", function() {
             const elements = document.querySelectorAll('.fade-in');
             const observer = new IntersectionObserver((entries) => {
@@ -229,40 +223,55 @@
             elements.forEach(element => observer.observe(element));
         });
 
-        // --- LÓGICA DEL CARRUSEL DEL PULPO ---
-        const slidesPulpo = document.querySelectorAll('.carrusel-pulpo-slide');
-        const dotsPulpo = document.querySelectorAll('#indicadoresPulpo .dot');
-        let indexPulpo = 0;
-        let intervaloCarrusel;
+        // --- CARRUSEL PUERTA GIRATORIA (CUADRADO) ---
+        const totalImagenes = 3; // Cambia este número si tienes más
+        let indiceActual = 0;
 
-        function mostrarSlidePulpo(index) {
-            slidesPulpo.forEach((slide, i) => {
-                slide.classList.toggle('active', i === index);
-            });
-            dotsPulpo.forEach((dot, i) => {
-                dot.classList.toggle('active', i === index);
+        function iniciarCarruselGiratorio() {
+            const contenedor = document.getElementById('carruselGiratorioInner');
+            const puntosContenedor = document.getElementById('indicadoresGiratorio');
+            if (!contenedor || !puntosContenedor) return;
+
+            let html = '';
+            let puntos = '';
+
+            for (let i = 1; i <= totalImagenes; i++) {
+                // Asumimos que las imágenes se llaman 1.jpg, 2.jpg, 3.jpg
+                html += `
+                    <div class="carrusel-giratorio-slide">
+                        <img src="${i}.jpg" alt="San del Pulpo ${i}">
+                    </div>
+                `;
+                puntos += `<span class="punto ${i === 1 ? 'active' : ''}" onclick="irAlSlide(${i-1})"></span>`;
+            }
+
+            contenedor.innerHTML = html;
+            puntosContenedor.innerHTML = puntos;
+
+            setInterval(() => moverCarrusel(1), 3500); // Cambia cada 3.5 segundos
+        }
+
+        function moverCarrusel(direccion) {
+            indiceActual = (indiceActual + direccion + totalImagenes) % totalImagenes;
+            actualizarCarrusel();
+        }
+
+        function irAlSlide(indice) {
+            indiceActual = indice;
+            actualizarCarrusel();
+        }
+
+        function actualizarCarrusel() {
+            const inner = document.getElementById('carruselGiratorioInner');
+            if (inner) {
+                inner.style.transform = `translateX(-${indiceActual * 100}%)`;
+            }
+            document.querySelectorAll('.carrusel-giratorio-puntos .punto').forEach((punto, i) => {
+                punto.classList.toggle('active', i === indiceActual);
             });
         }
 
-        function siguienteSlidePulpo() {
-            indexPulpo = (indexPulpo + 1) % slidesPulpo.length;
-            mostrarSlidePulpo(indexPulpo);
-        }
-
-        // Iniciar el carrusel automático (cada 4 segundos)
-        if (slidesPulpo.length > 0) {
-            intervaloCarrusel = setInterval(siguienteSlidePulpo, 4000);
-        }
-
-        // Permitir clic en los puntitos
-        dotsPulpo.forEach((dot, i) => {
-            dot.addEventListener('click', () => {
-                clearInterval(intervaloCarrusel);
-                indexPulpo = i;
-                mostrarSlidePulpo(indexPulpo);
-                intervaloCarrusel = setInterval(siguienteSlidePulpo, 4000); // Reiniciar
-            });
-        });
+        document.addEventListener('DOMContentLoaded', iniciarCarruselGiratorio);
     </script>
 </body>
 </html>
