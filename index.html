@@ -1,562 +1,335 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>San del Pulpo | Ahorro en Comunidad</title>
-  <meta name="description" content="El primer San digital con transparencia total. Ahorra en comunidad, gira la ruleta y recibe cuando te toca. Únete al movimiento del Pulpo.">
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=Playfair+Display:ital,wght@0,700;1,600&display=swap" rel="stylesheet" />
-
-  <link rel="stylesheet" href="templatemo-622-clearwave.css" />
-  
-  <!-- Estilos personalizados para el San del Pulpo -->
-  <style>
-    :root {
-      --accent: #fbbf24;
-      --accent-mid: #eab308;
-      --accent-light: #fde68a;
-      --bg: #0b1c3a;
-      --bg-alt: #112b4f;
-      --surface: #1e3a5f;
-      --text: #ffffff;
-      --text-2: #a0c4e8;
-    }
-    body { background-color: var(--bg); color: var(--text); }
-    .nav { background-color: var(--bg-alt); border-bottom: 2px solid var(--accent); }
-    .nav-logo { color: var(--text); }
-    .nav-logo span { color: var(--accent); }
-    .btn-primary { background-color: var(--accent); color: var(--bg); }
-    .btn-primary:hover { background-color: var(--accent-mid); }
-    .section-title { color: var(--text); }
-    .section-title em { color: var(--accent); }
-    .section-sub { color: var(--text-2); }
-    .feature-title { color: var(--text); }
-    .feature-desc { color: var(--text-2); }
-    .pricing-card { background-color: var(--surface); border: 1px solid var(--surface); }
-    .pricing-card.featured { border: 2px solid var(--accent); }
-    .pricing-price { color: var(--text); }
-    .pricing-desc { color: var(--text-2); }
-    .testimonial-card { background-color: var(--surface); }
-    .testimonial-quote { color: var(--text); }
-    .author-name { color: var(--text); }
-    .author-role { color: var(--text-2); }
-    .faq-question { color: var(--text); }
-    .faq-answer-inner { color: var(--text-2); }
-    .cta-inner { background-color: var(--bg-alt); border: 2px solid var(--accent); }
-    .footer { background-color: var(--bg-alt); border-top: 2px solid var(--accent); }
-    .footer-brand-desc { color: var(--text-2); }
-    .footer-links a { color: var(--text-2); }
-    .footer-links a:hover { color: var(--accent); }
-    .stat-value { color: var(--accent); }
-    .stat-label { color: var(--text); }
-    .stat-sublabel { color: var(--text-2); }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="San del Pulpo — Ahorra en comunidad, recibe cuando te toca. El primer San digital con transparencia total.">
+  <meta name="theme-color" content="#fbbf24">
+  <link rel="icon" href="pulpito.png">
+  <title>San del Pulpo — Ahorro en Comunidad</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="tooplate-2169-hustle-bee.css">
 </head>
 <body>
 
-  <!-- ── MOBILE MENU ── -->
-  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Navigation">
-    <a href="#screens">La App</a>
-    <a href="#features">Beneficios</a>
-    <a href="#pricing">Planes</a>
-    <a href="#testimonials">Historias</a>
-    <a href="#faq">Preguntas</a>
-    <a href="#" class="mobile-cta btn-primary">Unirme al San</a>
-  </div>
-
-  <!-- ── 1. NAV ── -->
-  <nav class="nav" id="mainNav" role="navigation" aria-label="Main navigation">
+  <!-- NAV -->
+  <nav class="nav" id="nav">
     <div class="nav-inner">
-      <a href="#" class="nav-logo">San del <span>Pulpo</span></a>
-      <ul class="nav-links" role="list">
-        <li><a href="#screens">La App</a></li>
-        <li><a href="#features">Beneficios</a></li>
-        <li><a href="#pricing">Planes</a></li>
-        <li><a href="#testimonials">Historias</a></li>
-        <li><a href="#faq">Preguntas</a></li>
+      <a href="#hero" class="nav-logo"><span class="bee-icon">🐙</span> San del Pulpo</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">El San</a></li>
+        <li><a href="#skills">Beneficios</a></li>
+        <li><a href="#projects">Historias</a></li>
+        <li><a href="#education">Cómo Funciona</a></li>
+        <li><a href="#experience">Comunidad</a></li>
+        <li><a href="#contact" class="nav-cta">Unirme</a></li>
       </ul>
-      <div class="nav-cta">
-        <a href="#" class="btn-ghost">Iniciar Sesión</a>
-        <a href="#" class="btn-primary">Unirme al San</a>
-      </div>
-      <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span></button>
     </div>
   </nav>
 
-  <!-- ── 2. HERO ── -->
-  <section class="hero">
-    <div class="container">
-      <div class="hero-inner">
-        <div class="hero-content">
-          <div class="hero-badge reveal">
-            <div class="hero-badge-dot">✦</div>
-            <span>El primer San digital de <strong>Venezuela</strong></span>
-          </div>
-          <h1 class="hero-title reveal reveal-delay-1">
-            Ahorra en comunidad,<br><em>recibe cuando te toca.</em>
-          </h1>
-          <p class="hero-sub reveal reveal-delay-2">
-            El San del Pulpo une a tu grupo, tus pagos y tu turno en un solo lugar. Transparente, seguro y con la confianza de tu comunidad.
-          </p>
-          <div class="hero-actions reveal reveal-delay-3">
-            <a href="#" class="btn-primary-lg">
-              Quiero unirme al San
-              <span class="btn-arrow">→</span>
-            </a>
-            <a href="#screens" class="btn-outline-lg">
-              <span>▶</span> Ver cómo funciona
-            </a>
-          </div>
-          <div class="hero-trust reveal reveal-delay-4">
-            <div class="trust-item">
-              <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-              Turno Garantizado
-            </div>
-            <div class="trust-divider"></div>
-            <div class="trust-item">
-              <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-              Identidad Verificada
-            </div>
-            <div class="trust-divider"></div>
-            <div class="trust-item">
-              <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-              +500.000 usuarios
-            </div>
-          </div>
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <div class="hero-blob hero-blob-1"></div>
+      <div class="hero-blob hero-blob-2"></div>
+      <div class="hero-blob hero-blob-3"></div>
+      <div class="hero-honeycomb"></div>
+    </div>
+    <div class="container hero-content">
+      <div class="hero-text">
+        <div class="hero-badge"><span class="status-dot"></span> Comunidad Activa en Venezuela</div>
+        <h1 class="hero-name">Ahorra en comunidad,<br><span class="highlight">recibe cuando te toca.</span></h1>
+        <p class="hero-tagline">El San del Pulpo une a tu grupo, tus pagos y tu turno en un solo lugar. Transparente, seguro y con la confianza de tu comunidad.</p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary">Ver Historias ↓</a>
+          <a href="#contact" class="btn btn-secondary">Unirme al San</a>
         </div>
-        <div class="hero-visual reveal reveal-delay-2">
-          <div class="hero-dashboard">
-            <div class="dashboard-bar">
-              <div class="db-dot"></div><div class="db-dot"></div><div class="db-dot"></div>
-            </div>
-            <div class="dashboard-body">
-              <div class="db-header">
-                <div class="db-title">Mi San</div>
-                <div class="db-tag">Activo</div>
-              </div>
-              <div class="db-chart">
-                <div class="db-bar" style="height:35%"></div>
-                <div class="db-bar" style="height:55%"></div>
-                <div class="db-bar" style="height:42%"></div>
-                <div class="db-bar active" style="height:75%"></div>
-                <div class="db-bar" style="height:60%"></div>
-                <div class="db-bar active" style="height:88%"></div>
-                <div class="db-bar" style="height:70%"></div>
-                <div class="db-bar active" style="height:92%"></div>
-              </div>
-              <div class="db-stats">
-                <div class="db-stat">
-                  <div class="db-stat-val">94<span style="font-size:.9rem;color:var(--accent)">%</span></div>
-                  <div class="db-stat-label">Cumplimiento</div>
-                  <div class="db-stat-change">+12%</div>
-                </div>
-                <div class="db-stat">
-                  <div class="db-stat-val">2.4<span style="font-size:.9rem;color:var(--accent)">k</span></div>
-                  <div class="db-stat-label">Participantes</div>
-                  <div class="db-stat-change">+8%</div>
-                </div>
-                <div class="db-stat">
-                  <div class="db-stat-val">18<span style="font-size:.9rem;color:var(--accent)">h</span></div>
-                  <div class="db-stat-label">Ahorro / semana</div>
-                  <div class="db-stat-change">+24%</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="hero-float-badge">
-            <div class="float-badge-icon">✦</div>
-            <div class="float-badge-text">
-              <strong>Turno Recibido</strong>
-              <span>María recibió su turno · hoy</span>
-            </div>
-          </div>
-          <div class="hero-float-badge-2">
-            <div class="float-badge-2-val">↑ 34%</div>
-            <div class="float-badge-2-label">Ahorro este mes</div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-img-card">
+          <img src="portada-platanos.jpg" alt="Comunidad del San">
+        </div>
+        <div class="hero-img-card">
+          <img src="1.jpg" alt="El Giro del Pulpo">
+        </div>
+        <div class="hero-img-card">
+          <img src="2.jpg" alt="Cesta de Víveres">
+        </div>
+        <span class="hero-floating-bee">🐙</span>
+        <span class="hero-visual-sticker">+500.000 usuarios 🚀</span>
+      </div>
+    </div>
+    <div class="scroll-hint">scroll<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M19 12l-7 7-7-7"/></svg></div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-photo-wrap reveal">
+          <div class="about-photo"><img src="pulpito.png" alt="Pulpito del San"></div>
+          <div class="about-photo-decor"></div>
+          <div class="about-photo-sticker">✌️ ¡Únete!</div>
+        </div>
+        <div class="about-text reveal reveal-delay-1">
+          <span class="section-label"><span class="dot"></span> ¿Qué es el San del Pulpo?</span>
+          <h2 class="section-title">El sistema de ahorro<br>que reparte confianza.</h2>
+          <p>El San del Pulpo es un sistema de ahorro rotativo digital donde un grupo de personas aporta una cuota fija y, por turnos, cada uno recibe el monto total. La diferencia es que usamos la tecnología para garantizar la transparencia y la seguridad.</p>
+          <p>No somos una pirámide ni una captación ilegal de dinero. El dinero se mueve directamente entre los participantes. Además, implementamos un depósito de garantía para proteger a todos los miembros del grupo.</p>
+          <div class="about-stats">
+            <div class="stat-item"><span class="stat-number">15%</span><span class="stat-label">Comisión</span></div>
+            <div class="stat-item"><span class="stat-number">100%</span><span class="stat-label">Garantizado</span></div>
+            <div class="stat-item"><span class="stat-number">+5k</span><span class="stat-label">Familias</span></div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ── 3. LOGO TICKER ── -->
-  <div class="ticker-section">
-    <div class="ticker-label">Nuestros afiliados confían en nosotros</div>
-    <div class="ticker-track-wrap">
-      <div class="ticker-track">
-        <div class="ticker-item"><div class="ticker-item-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--accent)"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>El Sabor de Doña Rosa</div>
-        <div class="ticker-dot"></div>
-        <div class="ticker-item"><div class="ticker-item-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--accent)"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></div>Fajas Edi</div>
-        <div class="ticker-dot"></div>
-        <div class="ticker-item"><div class="ticker-item-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--accent)"><polygon points="12,2 22,20 2,20"/></svg></div>Taller Barney</div>
-        <div class="ticker-dot"></div>
-        <div class="ticker-item"><div class="ticker-item-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--accent)"><path d="M4 4h16v12H4z M8 20h8"/></svg></div>KATA - Servicio Técnico</div>
-        <div class="ticker-dot"></div>
-        <div class="ticker-item"><div class="ticker-item-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--accent)"><circle cx="12" cy="7" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>Hotel La Puerta del Sol</div>
-        <div class="ticker-dot"></div>
-        <!-- Duplicado para loop -->
-        <div class="ticker-item"><div class="ticker-item-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--accent)"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>El Sabor de Doña Rosa</div>
-        <div class="ticker-dot"></div>
-        <div class="ticker-item"><div class="ticker-item-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--accent)"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></div>Fajas Edi</div>
-        <div class="ticker-dot"></div>
-        <div class="ticker-item"><div class="ticker-item-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--accent)"><polygon points="12,2 22,20 2,20"/></svg></div>Taller Barney</div>
-        <div class="ticker-dot"></div>
-        <div class="ticker-item"><div class="ticker-item-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--accent)"><path d="M4 4h16v12H4z M8 20h8"/></svg></div>KATA - Servicio Técnico</div>
-        <div class="ticker-dot"></div>
-        <div class="ticker-item"><div class="ticker-item-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--accent)"><circle cx="12" cy="7" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>Hotel La Puerta del Sol</div>
-        <div class="ticker-dot"></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ── 5. 3D PHONE CAROUSEL ── -->
-  <section class="carousel-section" id="screens">
+  <!-- SKILLS — BENTO (BENEFICIOS) -->
+  <section class="skills" id="skills">
     <div class="container">
-      <div class="carousel-header">
-        <div class="section-label reveal">La App</div>
-        <h2 class="section-title reveal reveal-delay-1">Tu San,<br><em>en tu bolsillo</em></h2>
-        <p class="section-sub reveal reveal-delay-2">La app del San del Pulpo te permite ver tus turnos, pagar tus cuotas y participar en la Ruleta del Pulpo desde cualquier lugar.</p>
+      <div class="skills-header reveal">
+        <span class="section-label"><span class="dot"></span> Beneficios</span>
+        <h2 class="section-title">Todo lo que ganas con el Pulpo.</h2>
+        <p class="section-desc">Cada función está pensada para que ahorrar sea seguro, transparente y en equipo.</p>
       </div>
-    </div>
-    <div class="carousel-zoom">
-      <button class="zoom-btn" id="zoomOut" aria-label="Zoom out">−</button>
-      <div class="zoom-pips" id="zoomPips"></div>
-      <button class="zoom-btn" id="zoomIn" aria-label="Zoom in">+</button>
-    </div>
-
-    <div class="carousel-stage" id="carouselStage">
-      <div class="carousel-track" id="carouselTrack">
-        <!-- Reemplaza estas imágenes por las tuyas (1.jpg, 2.jpg, 3.jpg) -->
-        <div class="phone-card" data-pos="left2" data-index="0">
-          <div class="phone-shell"><div class="phone-screen"><img src="1.jpg" alt="Pantalla 1" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy" /></div></div>
+      <div class="skills-bento">
+        <div class="skill-bento-card span-2 reveal-scale">
+          <img class="skill-bento-img" src="3.jpg" alt="Turno Garantizado">
+          <div class="skill-bento-overlay">
+            <span class="skill-bento-name">Turno Garantizado</span>
+            <span class="skill-bento-desc">Usamos un depósito de garantía y un fondo de reserva para que siempre recibas tu dinero en la fecha que te toca.</span>
+          </div>
+          <span class="skill-bento-level">Seguro</span>
         </div>
-        <div class="phone-card" data-pos="left1" data-index="1">
-          <div class="phone-shell"><div class="phone-screen"><img src="2.jpg" alt="Pantalla 2" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy" /></div></div>
+        <div class="skill-bento-card reveal-scale reveal-delay-1">
+          <img class="skill-bento-img" src="1.jpg" alt="Comunidad Verificada">
+          <div class="skill-bento-overlay">
+            <span class="skill-bento-name">Comunidad Verificada</span>
+            <span class="skill-bento-desc">Cada participante verifica su identidad para que tu grupo esté formado por personas reales.</span>
+          </div>
+          <span class="skill-bento-level">Confiable</span>
         </div>
-        <div class="phone-card" data-pos="center" data-index="2">
-          <div class="phone-shell"><div class="phone-screen"><img src="3.jpg" alt="Pantalla 3" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy" /></div></div>
+        <div class="skill-bento-card reveal-scale reveal-delay-2">
+          <img class="skill-bento-img" src="2.jpg" alt="Ruleta del Pulpo">
+          <div class="skill-bento-overlay">
+            <span class="skill-bento-name">Ruleta del Pulpo</span>
+            <span class="skill-bento-desc">Ahorra y gana. Cada vez que participas, tienes la oportunidad de girar la ruleta y ganar una cesta de víveres.</span>
+          </div>
+          <span class="skill-bento-level">Premios</span>
         </div>
-        <div class="phone-card" data-pos="right1" data-index="3">
-          <div class="phone-shell"><div class="phone-screen"><img src="1.jpg" alt="Pantalla 4" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy" /></div></div>
+        <div class="skill-bento-card tall reveal-scale">
+          <img class="skill-bento-img" src="portada-platanos.jpg" alt="Coordinadores en Red">
+          <div class="skill-bento-overlay">
+            <span class="skill-bento-name">Coordinadores en Red</span>
+            <span class="skill-bento-desc">Gana un 5% extra por ser coordinador de tu propio grupo. Tú reúnes a tu comunidad, el Pulpo te da la herramienta.</span>
+          </div>
+          <span class="skill-bento-level">Liderazgo</span>
         </div>
-        <div class="phone-card" data-pos="right2" data-index="4">
-          <div class="phone-shell"><div class="phone-screen"><img src="2.jpg" alt="Pantalla 5" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy" /></div></div>
+        <div class="skill-bento-card reveal-scale reveal-delay-1">
+          <img class="skill-bento-img" src="1.jpg" alt="Pagos Seguros">
+          <div class="skill-bento-overlay">
+            <span class="skill-bento-name">Pagos Seguros</span>
+            <span class="skill-bento-desc">Pago Móvil y Binance. Tú eliges cómo pagar, nosotros garantizamos que llegue.</span>
+          </div>
+          <span class="skill-bento-level">Flexible</span>
+        </div>
+        <div class="skill-bento-card reveal-scale reveal-delay-2">
+          <img class="skill-bento-img" src="2.jpg" alt="Soporte 24/7">
+          <div class="skill-bento-overlay">
+            <span class="skill-bento-name">Soporte 24/7</span>
+            <span class="skill-bento-desc">Nuestro equipo y el Pulpo Cordial están disponibles para ayudarte en todo momento.</span>
+          </div>
+          <span class="skill-bento-level">Atención</span>
         </div>
       </div>
-    </div>
-
-    <div style="display:flex;align-items:center;justify-content:center;gap:24px;width:100%;margin-top:48px;">
-      <button class="carousel-btn" id="carouselPrev" aria-label="Previous screen">
-        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
-      </button>
-      <div class="carousel-dots" id="carouselDots"></div>
-      <button class="carousel-btn" id="carouselNext" aria-label="Next screen">
-        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-      </button>
     </div>
   </section>
 
-  <!-- ── 4. FEATURES ── -->
-  <section class="features-section" id="features">
+  <!-- PROJECTS — DIAGONAL SPLIT (HISTORIAS) -->
+  <section class="projects" id="projects">
     <div class="container">
-      <div class="features-header">
-        <div class="section-label reveal">Beneficios</div>
-        <h2 class="section-title reveal reveal-delay-1">Diseñado para la<br><em>comunidad</em></h2>
-        <p class="section-sub reveal reveal-delay-2">Cada función está pensada para que ahorrar sea seguro, transparente y en equipo.</p>
+      <div class="reveal">
+        <span class="section-label"><span class="dot"></span> Historias de Éxito</span>
+        <h2 class="section-title">Lo que dice nuestra comunidad.</h2>
+        <p class="section-desc">Personas reales que ya están transformando su economía con el San del Pulpo.</p>
       </div>
 
-      <!-- Feature 1 -->
-      <div class="feature-row">
-        <div class="feature-content reveal">
-          <div class="feature-number">01 — Turno Garantizado</div>
-          <h3 class="feature-title">Tu turno llega, aunque alguien falle</h3>
-          <p class="feature-desc">Usamos un depósito de garantía y un fondo de reserva para que siempre recibas tu dinero en la fecha que te toca.</p>
-          <div class="feature-checklist">
-            <div class="feature-check"><div class="check-icon">✓</div><span>Depósito de garantía por participante</span></div>
-            <div class="feature-check"><div class="check-icon">✓</div><span>Fondo de reserva comunitario</span></div>
-            <div class="feature-check"><div class="check-icon">✓</div><span>Pagos protegidos y verificados</span></div>
+      <div class="projects-list">
+        <div class="project-card reveal">
+          <div class="project-card-img">
+            <img src="1.jpg" alt="María Rodríguez">
+          </div>
+          <div class="project-info">
+            <span class="project-number">01</span>
+            <span class="project-tag">Emprendedora</span>
+            <h3 class="project-title">María Rodríguez</h3>
+            <p class="project-desc">"El San del Pulpo me ayudó a cumplir mi meta. La ruleta es súper transparente y la comunidad es muy unida."</p>
+            <div class="project-stack">
+              <span class="project-stack-pill">Caracas</span>
+              <span class="project-stack-pill">Meta Cumplida</span>
+            </div>
+            <a href="#" class="project-link">Ver su historia <span class="project-link-arrow">→</span></a>
           </div>
         </div>
-        <div class="feature-visual reveal reveal-delay-1">
-          <div class="feature-visual-inner">
-            <div class="fv-row">
-              <div class="fv-card">
-                <div class="fv-card-label">Fondo de Reserva</div>
-                <div class="fv-card-val">$1,250</div>
-                <div class="fv-card-bar"><div class="fv-card-bar-fill" style="width:72%"></div></div>
-              </div>
-              <div class="fv-card">
-                <div class="fv-card-label">Participantes</div>
-                <div class="fv-card-val">124</div>
-                <div class="fv-card-bar"><div class="fv-card-bar-fill" style="width:88%"></div></div>
-              </div>
-            </div>
-            <div class="fv-card">
-              <div class="fv-card-label">Actividad Reciente</div>
-              <div class="fv-list" style="margin-top:8px">
-                <div class="fv-list-item"><span class="fv-list-name">Turno de María pagado</span><span class="fv-pill green">Completado</span></div>
-                <div class="fv-list-item"><span class="fv-list-name">Cuota de Pedro recibida</span><span class="fv-pill blue">Activo</span></div>
-                <div class="fv-list-item"><span class="fv-list-name">Sorteo de Ruleta</span><span class="fv-pill dim">Programado</span></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      <!-- Feature 2 -->
-      <div class="feature-row reverse">
-        <div class="feature-content reveal">
-          <div class="feature-number">02 — Comunidad Verificada</div>
-          <h3 class="feature-title">Gente real,<br><em>confianza real</em></h3>
-          <p class="feature-desc">Cada participante verifica su identidad para que tu grupo esté formado por personas reales y comprometidas.</p>
-          <div class="feature-checklist">
-            <div class="feature-check"><div class="check-icon">✓</div><span>Verificación de cédula y selfie</span></div>
-            <div class="feature-check"><div class="check-icon">✓</div><span>Historial de pagos visible</span></div>
-            <div class="feature-check"><div class="check-icon">✓</div><span>Sistema de puntos por puntualidad</span></div>
+        <div class="project-card reveal">
+          <div class="project-card-img">
+            <img src="2.jpg" alt="José Pérez">
+          </div>
+          <div class="project-info">
+            <span class="project-number">02</span>
+            <span class="project-tag">Comerciante</span>
+            <h3 class="project-title">José Pérez</h3>
+            <p class="project-desc">"Es la forma más segura de ahorrar en comunidad. Ya no le tengo miedo a los morosos."</p>
+            <div class="project-stack">
+              <span class="project-stack-pill">Valencia</span>
+              <span class="project-stack-pill">Ahorro Seguro</span>
+            </div>
+            <a href="#" class="project-link">Ver su historia <span class="project-link-arrow">→</span></a>
           </div>
         </div>
-        <div class="feature-visual reveal reveal-delay-1">
-          <div class="feature-visual-inner">
-            <div class="fv-card">
-              <div class="fv-card-label">Miembros Activos</div>
-              <div class="fv-list" style="margin-top:8px">
-                <div class="fv-list-item"><span class="fv-list-name">María González</span><span class="fv-pill green">Verificada</span></div>
-                <div class="fv-list-item"><span class="fv-list-name">Pedro Pérez</span><span class="fv-pill green">Verificado</span></div>
-                <div class="fv-list-item"><span class="fv-list-name">Ana Rodríguez</span><span class="fv-pill blue">En revisión</span></div>
-              </div>
-            </div>
-            <div class="fv-row">
-              <div class="fv-card fv-wide">
-                <div class="fv-card-label">Puntos de Confianza</div>
-                <div class="fv-card-val">4.8 / 5.0</div>
-                <div class="fv-card-bar"><div class="fv-card-bar-fill" style="width:91%"></div></div>
-              </div>
-              <div class="fv-card">
-                <div class="fv-card-label">Miembros</div>
-                <div class="fv-card-val">124</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      <!-- Feature 3 -->
-      <div class="feature-row">
-        <div class="feature-content reveal">
-          <div class="feature-number">03 — Ruleta del Pulpo</div>
-          <h3 class="feature-title">Ahorra y gana<br><em>al mismo tiempo</em></h3>
-          <p class="feature-desc">Cada vez que participas, tienes la oportunidad de girar la Ruleta del Pulpo y ganar una cesta de víveres.</p>
-          <div class="feature-checklist">
-            <div class="feature-check"><div class="check-icon">✓</div><span>Una oportunidad de giro por cada San</span></div>
-            <div class="feature-check"><div class="check-icon">✓</div><span>Premios en víveres y productos</span></div>
-            <div class="feature-check"><div class="check-icon">✓</div><span>Sorteos transparentes en vivo</span></div>
+        <div class="project-card reveal">
+          <div class="project-card-img">
+            <img src="3.jpg" alt="Yenifer Gómez">
           </div>
-        </div>
-        <div class="feature-visual reveal reveal-delay-1">
-          <div class="feature-visual-inner">
-            <div class="fv-row">
-              <div class="fv-card fv-wide">
-                <div class="fv-card-label">Ganadores de la Ruleta</div>
-                <div style="display:flex;gap:-4px;margin-top:6px">
-                  <div style="width:28px;height:28px;border-radius:50%;background:var(--accent);border:2px solid var(--surface);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#fff">M</div>
-                  <div style="width:28px;height:28px;border-radius:50%;background:var(--accent-mid);border:2px solid var(--surface);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#fff;margin-left:-6px">P</div>
-                  <div style="width:28px;height:28px;border-radius:50%;background:#5A6B66;border:2px solid var(--surface);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#fff;margin-left:-6px">A</div>
-                  <div style="width:28px;height:28px;border-radius:50%;background:var(--bg-alt);border:2px solid var(--surface);display:flex;align-items:center;justify-content:center;font-size:9px;color:var(--text-2);margin-left:-6px">+5</div>
-                </div>
-              </div>
-              <div class="fv-card">
-                <div class="fv-card-label">Sorteos</div>
-                <div class="fv-card-val">12</div>
-              </div>
+          <div class="project-info">
+            <span class="project-number">03</span>
+            <span class="project-tag">Barbería</span>
+            <h3 class="project-title">Yenifer Gómez</h3>
+            <p class="project-desc">"Gracias al Pulpo, ya tengo mi primer kit para mi negocio. ¡La comunidad es lo máximo!"</p>
+            <div class="project-stack">
+              <span class="project-stack-pill">Maracay</span>
+              <span class="project-stack-pill">Kit de Trabajo</span>
             </div>
-            <div class="fv-card">
-              <div class="fv-card-label">Últimos Ganadores</div>
-              <div class="fv-list" style="margin-top:8px">
-                <div class="fv-list-item"><span class="fv-list-name">María → Cesta de víveres</span><span class="fv-pill green">Ganó</span></div>
-                <div class="fv-list-item"><span class="fv-list-name">Pedro → Cesta de víveres</span><span class="fv-pill green">Ganó</span></div>
-                <div class="fv-list-item"><span class="fv-list-name">Ana → Cesta de víveres</span><span class="fv-pill green">Ganó</span></div>
-              </div>
-            </div>
+            <a href="#" class="project-link">Ver su historia <span class="project-link-arrow">→</span></a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ── 6. STATS ── -->
-  <section class="stats-section">
+  <!-- EDUCATION — VISUAL CARDS (CÓMO FUNCIONA) -->
+  <section class="education" id="education">
     <div class="container">
-      <div class="stats-grid">
-        <div class="stat-card reveal">
-          <div class="stat-rule"></div>
-          <div class="stat-value"><span class="stat-num" data-target="50">0</span><span class="stat-suffix">k+</span></div>
-          <div class="stat-label">Usuarios Activos</div>
-          <div class="stat-sublabel">En Venezuela y Colombia</div>
+      <div class="reveal">
+        <span class="section-label"><span class="dot"></span> Cómo Funciona</span>
+        <h2 class="section-title">Tu San en 3 pasos.</h2>
+        <p class="section-desc">Simple, transparente y sin enredos.</p>
+      </div>
+      <div class="edu-cards">
+        <div class="edu-card reveal">
+          <div class="edu-card-img">
+            <img src="1.jpg" alt="Paso 1">
+            <span class="edu-card-year">Paso 1</span>
+          </div>
+          <div class="edu-card-body">
+            <h3 class="edu-card-title">Regístrate</h3>
+            <p class="edu-card-desc">Crea tu cuenta y verifica tu identidad. Solo necesitas tu cédula y una selfie.</p>
+          </div>
         </div>
-        <div class="stat-card reveal reveal-delay-1">
-          <div class="stat-rule"></div>
-          <div class="stat-value"><span class="stat-num" data-target="34">0</span><span class="stat-suffix">%</span></div>
-          <div class="stat-label">Ahorro Promedio</div>
-          <div class="stat-sublabel">En los primeros 30 días</div>
+        <div class="edu-card reveal reveal-delay-1">
+          <div class="edu-card-img">
+            <img src="2.jpg" alt="Paso 2">
+            <span class="edu-card-year">Paso 2</span>
+          </div>
+          <div class="edu-card-body">
+            <h3 class="edu-card-title">Únete a un Grupo</h3>
+            <p class="edu-card-desc">Elige un San con personas de tu comunidad. El monto y la frecuencia los decides tú.</p>
+          </div>
         </div>
-        <div class="stat-card reveal reveal-delay-2">
-          <div class="stat-rule"></div>
-          <div class="stat-value"><span class="stat-num" data-target="99" data-decimal="9">0</span><span class="stat-suffix">%</span></div>
-          <div class="stat-label">Turnos Pagados</div>
-          <div class="stat-sublabel">Garantizado y monitoreado</div>
-        </div>
-        <div class="stat-card reveal reveal-delay-3">
-          <div class="stat-rule"></div>
-          <div class="stat-value"><span class="stat-num" data-target="18">0</span><span class="stat-suffix">h</span></div>
-          <div class="stat-label">Ahorro por Grupo</div>
-          <div class="stat-sublabel">Promedio por cada San</div>
+        <div class="edu-card reveal reveal-delay-2">
+          <div class="edu-card-img">
+            <img src="3.jpg" alt="Paso 3">
+            <span class="edu-card-year">Paso 3</span>
+          </div>
+          <div class="edu-card-body">
+            <h3 class="edu-card-title">Gira y Recibe</h3>
+            <p class="edu-card-desc">La Ruleta del Pulpo decide quién recibe. Sin sorpresas, sin trampas. ¡Tú ganas!</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ── 7. PRICING ── -->
-  <section class="pricing-section" id="pricing">
+  <!-- EXPERIENCE — CARDS WITH IMAGES + MARQUEE (COMUNIDAD) -->
+  <section class="experience" id="experience">
     <div class="container">
-      <div class="pricing-header">
-        <div class="section-label reveal">Planes</div>
-        <h2 class="section-title reveal reveal-delay-1">Comisiones <em>transparentes</em></h2>
-        <p class="section-sub reveal reveal-delay-2">Sin sorpresas. Elige el plan que mejor se adapte a tu comunidad.</p>
+      <div class="reveal">
+        <span class="section-label"><span class="dot"></span> Nuestra Comunidad</span>
+        <h2 class="section-title">Un equipo que crece contigo.</h2>
+        <p class="section-desc">No estás solo. El San del Pulpo es una red de personas que se apoyan y crecen juntas.</p>
       </div>
-      <div class="pricing-toggle reveal">
-        <span class="toggle-label active" id="monthlyLabel">Mensual</span>
-        <div class="toggle-switch" id="pricingToggle" role="switch" aria-checked="false" tabindex="0" aria-label="Toggle annual billing"></div>
-        <span class="toggle-label" id="annualLabel">Anual</span>
-        <div class="toggle-badge">Ahorra 35%</div>
-      </div>
-      <div class="pricing-grid">
-        <div class="pricing-card reveal">
-          <div class="pricing-tier">Básico</div>
-          <div class="pricing-price">
-            <span class="price-currency">$</span>
-            <span class="price-amount" id="price-starter">10</span>
-            <span class="price-period">&nbsp;/ año</span>
-          </div>
-          <div class="price-annual-note" id="annual-note-starter">&nbsp;</div>
-          <p class="pricing-desc">Ideal para comenzar tu primer San con un grupo pequeño.</p>
-          <div class="pricing-divider"></div>
-          <div class="pricing-features">
-            <div class="pricing-feature"><div class="pricing-check">✓</div><span>Hasta 10 participantes</span></div>
-            <div class="pricing-feature"><div class="pricing-check">✓</div><span>1 San activo</span></div>
-            <div class="pricing-feature"><div class="pricing-check">✓</div><span>Ruleta del Pulpo básica</span></div>
-            <div class="pricing-feature"><div class="pricing-check">✓</div><span>Soporte por WhatsApp</span></div>
-          </div>
-          <a href="#" class="pricing-cta">Comenzar</a>
-        </div>
-        <div class="pricing-card featured reveal reveal-delay-1">
-          <div class="pricing-badge">Más Popular</div>
-          <div class="pricing-tier">Pro</div>
-          <div class="pricing-price">
-            <span class="price-currency">$</span>
-            <span class="price-amount" id="price-pro">20</span>
-            <span class="price-period">&nbsp;/ año</span>
-          </div>
-          <div class="price-annual-note" id="annual-note-pro">&nbsp;</div>
-          <p class="pricing-desc">Para grupos que quieren crecer y tener más beneficios.</p>
-          <div class="pricing-divider"></div>
-          <div class="pricing-features">
-            <div class="pricing-feature"><div class="pricing-check">✓</div><span>Hasta 25 participantes</span></div>
-            <div class="pricing-feature"><div class="pricing-check">✓</div><span>3 Sanes activos</span></div>
-            <div class="pricing-feature"><div class="pricing-check">✓</div><span>Ruleta del Pulpo premium</span></div>
-            <div class="pricing-feature"><div class="pricing-check">✓</div><span>Prioridad en sorteos</span></div>
-            <div class="pricing-feature"><div class="pricing-check">✓</div><span>Soporte prioritario</span></div>
-          </div>
-          <a href="#" class="pricing-cta">Comenzar</a>
-        </div>
-        <div class="pricing-card reveal reveal-delay-2">
-          <div class="pricing-tier">Élite</div>
-          <div class="pricing-price">
-            <span class="price-currency">$</span>
-            <span class="price-amount" id="price-ent">50</span>
-            <span class="price-period">&nbsp;/ año</span>
-          </div>
-          <div class="price-annual-note" id="annual-note-ent">&nbsp;</div>
-          <p class="pricing-desc">Para coordinadores y grupos grandes con necesidades especiales.</p>
-          <div class="pricing-divider"></div>
-          <div class="pricing-features">
-            <div class="pricing-feature"><div class="pricing-check">✓</div><span>Participantes ilimitados</span></div>
-            <div class="pricing-feature"><div class="pricing-check">✓</div><span>Sanes ilimitados</span></div>
-            <div class="pricing-feature"><div class="pricing-check">✓</div><span>Ruleta del Pulpo Élite</span></div>
-            <div class="pricing-feature"><div class="pricing-check">✓</div><span>Coordinador dedicado</span></div>
-            <div class="pricing-feature"><div class="pricing-check">✓</div><span>Soporte 24/7</span></div>
-          </div>
-          <a href="#" class="pricing-cta">Contactar</a>
+      <div class="exp-marquee">
+        <div class="exp-marquee-track">
+          <span class="exp-marquee-item">Coordinadores</span>
+          <span class="exp-marquee-item">Bodegas</span>
+          <span class="exp-marquee-item">Emprendedores</span>
+          <span class="exp-marquee-item">Familias</span>
+          <span class="exp-marquee-item">Comunidad</span>
+          <span class="exp-marquee-item">Plátanos</span>
+          <span class="exp-marquee-item">Víveres</span>
+          <span class="exp-marquee-item">Confianza</span>
+          <span class="exp-marquee-item">Coordinadores</span>
+          <span class="exp-marquee-item">Bodegas</span>
+          <span class="exp-marquee-item">Emprendedores</span>
+          <span class="exp-marquee-item">Familias</span>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ── 8. TESTIMONIALS ── -->
-  <section class="testimonials-section" id="testimonials">
-    <div class="container">
-      <div class="testimonials-header">
-        <div class="section-label reveal">Historias</div>
-        <h2 class="section-title reveal reveal-delay-1">Lo que dice <em>nuestra comunidad</em></h2>
-        <p class="section-sub reveal reveal-delay-2">Personas reales que ya están transformando su economía con el San del Pulpo.</p>
-      </div>
-      <div class="testimonials-grid">
-        <!-- Espacio para testimonios (reemplaza los textos por los reales) -->
-        <div class="testimonial-card tall reveal">
-          <div class="testimonial-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-          <p class="testimonial-quote">"El San del Pulpo me ayudó a cumplir mi meta. La ruleta es súper transparente y la comunidad es muy unida."</p>
-          <div class="testimonial-author">
-            <div class="author-avatar">MR</div>
-            <div>
-              <div class="author-name">María Rodríguez</div>
-              <div class="author-role">Emprendedora · Caracas</div>
+      <div class="exp-grid">
+        <div class="exp-card reveal">
+          <div class="exp-card-img">
+            <img src="portada-platanos.jpg" alt="Venta de Plátanos">
+            <span class="exp-card-duration">Tu negocio</span>
+          </div>
+          <div class="exp-card-body">
+            <span class="exp-card-period">Compra Solidaria</span>
+            <h3 class="exp-card-role">Plátanos al Mayor</h3>
+            <p class="exp-card-company">La Bendición de Dios</p>
+            <p class="exp-card-desc">Compra tus plátanos a precio justo. Con cada kilo, ayudas a construir el comedor comunitario de La Cumaca.</p>
+            <div class="exp-tags">
+              <span class="exp-tag">Plátano</span>
+              <span class="exp-tag">Comunidad</span>
+              <span class="exp-tag">Solidaridad</span>
             </div>
           </div>
         </div>
-        <div class="testimonial-card reveal reveal-delay-1">
-          <div class="testimonial-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-          <p class="testimonial-quote">"Es la forma más segura de ahorrar en comunidad. Ya no le tengo miedo a los morosos."</p>
-          <div class="testimonial-author">
-            <div class="author-avatar">JP</div>
-            <div>
-              <div class="author-name">José Pérez</div>
-              <div class="author-role">Comerciante · Valencia</div>
+        <div class="exp-card reveal reveal-delay-1">
+          <div class="exp-card-img">
+            <img src="1.jpg" alt="Bodegas">
+            <span class="exp-card-duration">Tu aliado</span>
+          </div>
+          <div class="exp-card-body">
+            <span class="exp-card-period">Fidelización</span>
+            <h3 class="exp-card-role">Bodegas y Abastos</h3>
+            <p class="exp-card-company">Red de Comercios</p>
+            <p class="exp-card-desc">Tu bodega se vuelve parte de la red. Atrae más clientes con el Giro del Pulpo y fideliza a tu comunidad.</p>
+            <div class="exp-tags">
+              <span class="exp-tag">Clientes</span>
+              <span class="exp-tag">Fidelización</span>
+              <span class="exp-tag">Crecimiento</span>
             </div>
           </div>
         </div>
-        <div class="testimonial-card reveal reveal-delay-2">
-          <div class="testimonial-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-          <p class="testimonial-quote">"Gracias al Pulpo, ya tengo mi primer kit para mi negocio. ¡La comunidad es lo máximo!"</p>
-          <div class="testimonial-author">
-            <div class="author-avatar">YG</div>
-            <div>
-              <div class="author-name">Yenifer Gómez</div>
-              <div class="author-role">Barbería · Maracay</div>
-            </div>
+        <div class="exp-card reveal reveal-delay-2">
+          <div class="exp-card-img">
+            <img src="2.jpg" alt="Coordinadores">
+            <span class="exp-card-duration">Tu liderazgo</span>
           </div>
-        </div>
-        <div class="testimonial-card reveal reveal-delay-1">
-          <div class="testimonial-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-          <p class="testimonial-quote">"La Ruleta del Pulpo me dio una cesta de víveres. ¡No lo podía creer! Esto sí es comunidad."</p>
-          <div class="testimonial-author">
-            <div class="author-avatar">LM</div>
-            <div>
-              <div class="author-name">Luis Martínez</div>
-              <div class="author-role">Docente · Barquisimeto</div>
-            </div>
-          </div>
-        </div>
-        <div class="testimonial-card reveal reveal-delay-2">
-          <div class="testimonial-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-          <p class="testimonial-quote">"El soporte es rápido y amable. Me siento parte de algo grande."</p>
-          <div class="testimonial-author">
-            <div class="author-avatar">CS</div>
-            <div>
-              <div class="author-name">Carla Sánchez</div>
-              <div class="author-role">Estilista · Cúcuta</div>
+          <div class="exp-card-body">
+            <span class="exp-card-period">Red de Apoyo</span>
+            <h3 class="exp-card-role">Coordinadores</h3>
+            <p class="exp-card-company">Gana un 5% extra</p>
+            <p class="exp-card-desc">Reúne a tu comunidad, organiza Sanes y gana un 5% de comisión por cada grupo que gestiones.</p>
+            <div class="exp-tags">
+              <span class="exp-tag">Liderazgo</span>
+              <span class="exp-tag">Comisión</span>
+              <span class="exp-tag">Equipo</span>
             </div>
           </div>
         </div>
@@ -564,136 +337,44 @@
     </div>
   </section>
 
-  <!-- ── 10. FAQ ── -->
-  <section class="faq-section" id="faq">
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
     <div class="container">
-      <div class="faq-inner">
-        <div class="faq-sidebar reveal">
-          <div class="section-label">Preguntas</div>
-          <h2 class="section-title">Lo que todos<br><em>preguntan</em></h2>
-          <p class="section-sub">¿No encuentras lo que buscas? Escríbenos a nuestro WhatsApp y te respondemos rápido.</p>
-          <button class="faq-toggle-all" id="faqToggleAll">
-            <span id="faqToggleIcon">+</span> Expandir todo</button>
-        </div>
-        <div class="faq-list reveal reveal-delay-1" id="faqList">
-          <div class="faq-item">
-            <div class="faq-question" tabindex="0" role="button" aria-expanded="false">
-              ¿Qué es el San del Pulpo?
-              <div class="faq-icon">+</div>
-            </div>
-            <div class="faq-answer"><div class="faq-answer-inner">Es un sistema de ahorro rotativo digital donde un grupo de personas aporta una cuota fija y, por turnos, cada uno recibe el monto total. La diferencia es que usamos la tecnología para garantizar la transparencia y la seguridad.</div></div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-question" tabindex="0" role="button" aria-expanded="false">
-              ¿Es legal y seguro?
-              <div class="faq-icon">+</div>
-            </div>
-            <div class="faq-answer"><div class="faq-answer-inner">Sí. No somos una pirámide ni una captación ilegal de dinero. El dinero se mueve directamente entre los participantes. Además, implementamos un depósito de garantía para proteger a todos los miembros del grupo.</div></div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-question" tabindex="0" role="button" aria-expanded="false">
-              ¿Cómo me aseguran que recibiré mi turno?
-              <div class="faq-icon">+</div>
-            </div>
-            <div class="faq-answer"><div class="faq-answer-inner">Cada participante deja un depósito de garantía al unirse. Si alguien no paga, ese depósito cubre el faltante para que el ganador reciba su dinero completo. Así la comunidad se protege a sí misma.</div></div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-question" tabindex="0" role="button" aria-expanded="false">
-              ¿Cuánto cuesta usar la plataforma?
-              <div class="faq-icon">+</div>
-            </div>
-            <div class="faq-answer"><div class="faq-answer-inner">Cobramos una comisión del 15% sobre el monto total del San. Ese porcentaje se usa para mantener la plataforma, cubrir la garantía y financiar los premios de la Ruleta del Pulpo.</div></div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-question" tabindex="0" role="button" aria-expanded="false">
-              ¿Qué pasa si alguien no paga?
-              <div class="faq-icon">+</div>
-            </div>
-            <div class="faq-answer"><div class="faq-answer-inner">Se usa su depósito de garantía para cubrir la cuota faltante. Esa persona queda bloqueada de la plataforma hasta que reponga el dinero.</div></div>
-          </div>
-        </div>
+      <div class="reveal">
+        <span class="section-label"><span class="dot"></span> Únete</span>
+        <h2 class="section-title">¿Listo para dar<br>el primer paso?</h2>
+        <p class="section-desc">Escríbenos y te ayudamos a empezar tu primer San. La comunidad te espera.</p>
       </div>
-    </div>
-  </section>
-
-  <!-- ── 11. CTA BANNER ── -->
-  <section class="cta-section">
-    <div class="container">
-      <div class="cta-inner reveal">
-        <div class="cta-content">
-          <div class="cta-label">✦ Únete hoy</div>
-          <h2 class="cta-title">¿Listo para dar<br><em>el primer paso?</em></h2>
-          <p class="cta-sub">Únete a la comunidad del Pulpo y empieza a ahorrar de forma segura y transparente.</p>
-        </div>
-        <div class="cta-actions">
-          <a href="#" class="btn-cta-primary">
-            Unirme al San
-            <span>→</span>
+      <div class="contact-grid">
+        <div class="contact-methods reveal reveal-delay-1">
+          <a href="https://wa.me/584227159158" class="contact-method">
+            <div class="contact-method-icon"><svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-1.7-.9-2.9-1.5-4-3.5-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5 1.9.8 2.7.9 3.6.7.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3ZM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4a9.8 9.8 0 1 1 8.3 4.6ZM12 .2C5.5.2.2 5.5.2 12c0 2.1.5 4.1 1.6 5.9L.1 24l6.3-1.6A11.8 11.8 0 0 0 23.8 12C23.8 5.5 18.5.2 12 .2Z"/></svg></div>
+            <div><div class="contact-method-label">WhatsApp</div><div class="contact-method-value">+58 422-7159158</div></div>
           </a>
-          <a href="#" class="btn-cta-ghost">Hablar con un asesor</a>
+        </div>
+        <div class="contact-form reveal reveal-delay-2">
+          <input type="text" placeholder="Tu nombre" required>
+          <input type="email" placeholder="Tu correo" required>
+          <input type="text" placeholder="Asunto">
+          <textarea placeholder="Cuéntanos qué necesitas..."></textarea>
+          <button type="button" class="btn-submit">Enviar Mensaje 🐙</button>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ── 12. FOOTER ── -->
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <a href="#" class="nav-logo">San del <span style="color:var(--accent-light)">Pulpo</span></a>
-          <p class="footer-brand-desc">El sistema de ahorro comunitario que reparte confianza y construye futuro.</p>
-          <div class="footer-socials">
-            <a href="#" class="social-btn" aria-label="Twitter / X"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
-            <a href="#" class="social-btn" aria-label="LinkedIn"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
-            <a href="#" class="social-btn" aria-label="YouTube"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
-            <a href="#" class="social-btn" aria-label="TikTok"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
-          </div>
-        </div>
-        <div>
-          <div class="footer-col-label">Producto</div>
-          <div class="footer-links">
-            <a href="#features">Beneficios</a>
-            <a href="#screens">La App</a>
-            <a href="#pricing">Planes</a>
-            <a href="#">Integraciones</a>
-            <a href="#">Novedades</a>
-          </div>
-        </div>
-        <div>
-          <div class="footer-col-label">Compañía</div>
-          <div class="footer-links">
-            <a href="#">Nosotros</a>
-            <a href="#">Blog</a>
-            <a href="#">Empleos</a>
-            <a href="#">Prensa</a>
-            <a href="#">Estado</a>
-          </div>
-        </div>
-        <div>
-          <div class="footer-col-label">Soporte</div>
-          <div class="footer-links">
-            <a href="#">Centro de Ayuda</a>
-            <a href="#">Documentación</a>
-            <a href="#">Seguridad</a>
-            <a href="#">Contacto</a>
-            <a href="#">Comunidad</a>
-          </div>
-        </div>
+      <div class="footer-socials">
+        <a href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+        <a href="#" aria-label="TikTok"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
       </div>
-      <div class="footer-bottom">
-        <div class="footer-copy">
-          © 2026 San del Pulpo. Diseñado con ❤️ para Venezuela.
-        </div>
-        <div class="footer-legal">
-          <a href="#">Privacidad</a>
-          <a href="#">Términos</a>
-          <a href="#">Cookies</a>
-        </div>
-      </div>
+      <p class="footer-text">Hecho con <span>♥</span> para Venezuela · © 2026 San del Pulpo</p>
     </div>
   </footer>
-
-  <script src="templatemo-622-clearwave.js"></script>
+  
+  <script src="tooplate-2169-hustle-bee.js"></script>
 </body>
 </html>
