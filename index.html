@@ -368,6 +368,131 @@
       </div>
     </div>
   </section>
+  <!-- ── PANEL DE CONTROL DEL PARTICIPANTE ── -->
+<section class="panel-control" id="panel" style="background: var(--bg-alt); padding: 80px 0;">
+  <div class="container" style="max-width: 900px; margin: 0 auto;">
+    <div class="reveal" style="text-align: center; margin-bottom: 40px;">
+      <span class="section-label"><span class="dot"></span> Mi Panel</span>
+      <h2 class="section-title" style="color: var(--text);">Bienvenido, <span style="color: var(--accent);">[Nombre del Usuario]</span></h2>
+      <p class="section-desc">Aquí tienes el control total de tu San. Transparencia y claridad en cada paso.</p>
+    </div>
+
+    <!-- Tarjeta de Identificación -->
+    <div style="background: var(--surface); border-radius: 20px; padding: 30px; border: 2px solid var(--accent); margin-bottom: 30px;">
+      <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
+        <div style="width: 80px; height: 80px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: bold; color: var(--bg);">
+          [Inicial]
+        </div>
+        <div>
+          <h3 style="color: var(--text); font-size: 1.5rem; margin: 0;">[Nombre Completo]</h3>
+          <p style="color: var(--text-2); margin: 5px 0;">Rol: <strong style="color: var(--accent);">Coordinador</strong> · Estado: <strong style="color: #25d366;">Activo</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mi Grupo -->
+    <div style="background: var(--surface); border-radius: 20px; padding: 30px; border: 1px solid var(--surface); margin-bottom: 30px;">
+      <h3 style="color: var(--accent); margin-bottom: 20px;">👥 Mi Grupo (10 Participantes)</h3>
+      <ul style="list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px;">
+        <li style="display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,0.2); padding: 10px; border-radius: 10px;">
+          <span style="color: #25d366;">✅</span> <span style="color: var(--text);">María Rodríguez</span>
+        </li>
+        <li style="display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,0.2); padding: 10px; border-radius: 10px;">
+          <span style="color: #25d366;">✅</span> <span style="color: var(--text);">José Pérez</span>
+        </li>
+        <li style="display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,0.2); padding: 10px; border-radius: 10px;">
+          <span style="color: #fbbf24;">⏳</span> <span style="color: var(--text);">Yolanda Méndez</span>
+        </li>
+        <!-- Agrega los 10 participantes aquí -->
+      </ul>
+    </div>
+
+    <!-- Mi Turno y Progreso -->
+    <div style="background: var(--surface); border-radius: 20px; padding: 30px; border: 1px solid var(--surface); margin-bottom: 30px;">
+      <h3 style="color: var(--accent); margin-bottom: 20px;">📅 Mi Turno</h3>
+      <p style="color: var(--text);">Tu turno es el número <strong style="color: var(--accent);">5</strong> de 10.</p>
+      <p style="color: var(--text-2);">Fecha estimada de cobro: <strong style="color: var(--text);">15 de Diciembre, 2026</strong></p>
+      <div style="background: rgba(0,0,0,0.3); border-radius: 10px; height: 20px; margin-top: 15px; overflow: hidden;">
+        <div style="background: var(--accent); width: 30%; height: 100%;"></div>
+      </div>
+      <p style="color: var(--text-2); font-size: 0.8rem; margin-top: 5px;">Progreso: Semana 3 de 10.</p>
+    </div>
+
+    <!-- Próxima Ruleta -->
+    <div style="background: var(--surface); border-radius: 20px; padding: 30px; border: 1px solid var(--surface); margin-bottom: 30px;">
+      <h3 style="color: var(--accent); margin-bottom: 20px;">🎰 Próxima Ruleta</h3>
+      <p style="color: var(--text);">Fecha: <strong>Viernes, 15 de Noviembre, 2026</strong> a las <strong>8:00 PM</strong>.</p>
+      <p style="color: var(--text-2);">Sorteo en vivo por el grupo de WhatsApp.</p>
+    </div>
+
+    <!-- Compartir y Ganar -->
+    <div style="background: var(--surface); border-radius: 20px; padding: 30px; border: 2px solid var(--accent); margin-bottom: 30px;">
+      <h3 style="color: var(--accent); margin-bottom: 20px;">📤 Comparte y Gana</h3>
+      <p style="color: var(--text-2); margin-bottom: 15px;">Invita a tus amigos a unirse al San del Pulpo. Por cada referido, ganas puntos y cupones para la Ruleta.</p>
+      <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+        <input type="text" value="https://san-pulpo.guia-digital.com/ref/[TU-CODIGO]" readonly style="flex: 1; min-width: 200px; padding: 10px; border-radius: 10px; border: 1px solid var(--accent); background: rgba(0,0,0,0.3); color: var(--text);">
+        <button onclick="copiarEnlace()" style="background: var(--accent); color: var(--bg); border: none; padding: 10px 20px; border-radius: 10px; font-weight: bold; cursor: pointer;">Copiar Enlace</button>
+      </div>
+      <p style="color: var(--text); margin-top: 15px;">Tus referidos: <strong>3</strong> · Tus puntos: <strong>150</strong></p>
+    </div>
+
+    <!-- Botón de Contacto -->
+    <div style="text-align: center;">
+      <a href="https://wa.me/584227159158" target="_blank" class="btn btn-primary" style="background: #25d366; color: white; padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: bold;">📱 Contactar al Coordinador</a>
+    </div>
+  </div>
+</section>
+
+<script>
+function copiarEnlace() {
+  const input = document.querySelector('input[readonly]');
+  input.select();
+  input.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(input.value).then(() => alert('✅ Enlace copiado'));
+}
+</script>
+  <!-- ── CIERRE DEL SAN: RULETA FINAL Y SOUVENIRS ── -->
+<section class="cierre-san" id="cierre" style="background: var(--bg-alt); padding: 80px 0;">
+  <div class="container" style="max-width: 900px; margin: 0 auto; text-align: center;">
+    <div class="reveal">
+      <span class="section-label"><span class="dot"></span> Cierre del San</span>
+      <h2 class="section-title" style="color: var(--text);">¡Felicidades! <br><span style="color: var(--accent);">El San ha terminado.</span></h2>
+      <p class="section-desc">Has completado tu ciclo de 10 semanas. Ahora es momento de celebrar y llevarte tu premio.</p>
+    </div>
+
+    <!-- La Ruleta Final -->
+    <div style="background: var(--surface); border-radius: 20px; padding: 40px; border: 2px solid var(--accent); margin-bottom: 30px;">
+      <h3 style="color: var(--accent); margin-bottom: 20px;">🎰 La Ruleta Final</h3>
+      <p style="color: var(--text-2); margin-bottom: 20px;">Participa por un premio especial del Pulpo. ¡Cada semana hay una nueva oportunidad!</p>
+      <!-- Aquí va el componente de la ruleta (puede ser una imagen o un widget) -->
+      <div style="width: 200px; height: 200px; border-radius: 50%; background: conic-gradient(var(--accent) 0deg 45deg, var(--bg) 45deg 90deg, var(--accent) 90deg 135deg, var(--bg) 135deg 180deg, var(--accent) 180deg 225deg, var(--bg) 225deg 270deg, var(--accent) 270deg 315deg, var(--bg) 315deg 360deg); margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; border: 4px solid var(--text);">
+        <span style="background: var(--bg); padding: 10px 20px; border-radius: 30px; font-weight: bold; color: var(--accent);">GIRAR</span>
+      </div>
+      <p style="color: var(--text); font-weight: bold;">Premios: Gorra del Pulpo, Franela, Lapicero.</p>
+    </div>
+
+    <!-- Souvenirs del Pulpo -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 20px;">
+      <div style="background: var(--surface); border-radius: 15px; padding: 20px; border: 1px solid var(--accent);">
+        <div style="font-size: 3rem;">🧢</div>
+        <p style="color: var(--text); font-weight: bold;">Gorra del Pulpo</p>
+      </div>
+      <div style="background: var(--surface); border-radius: 15px; padding: 20px; border: 1px solid var(--accent);">
+        <div style="font-size: 3rem;">👕</div>
+        <p style="color: var(--text); font-weight: bold;">Franela del Pulpo</p>
+      </div>
+      <div style="background: var(--surface); border-radius: 15px; padding: 20px; border: 1px solid var(--accent);">
+        <div style="font-size: 3rem;">✏️</div>
+        <p style="color: var(--text); font-weight: bold;">Lapicero del Pulpo</p>
+      </div>
+    </div>
+
+    <!-- Botón de Compartir -->
+    <div style="margin-top: 30px;">
+      <a href="https://wa.me/584227159158" target="_blank" class="btn btn-primary" style="background: #25d366; color: white; padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: bold;">📱 Compartir mi experiencia</a>
+    </div>
+  </div>
+</section>
 
   <!-- FOOTER -->
   <footer class="footer">
