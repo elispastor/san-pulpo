@@ -18,8 +18,17 @@
   <nav class="nav" id="nav">
     <div class="nav-inner">
       <a href="#hero" class="nav-logo">
-<div class="pulpito-animado">
-    <img src="pulpito-flotante.png" alt="Pulpito del San" style="width: 150px; height: auto;">
+.pulpito-animado {
+    animation: flotar 3s ease-in-out infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@keyframes flotar {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
 </div>        San del Pulpo
       </a>
       <ul class="nav-links" id="navLinks">
