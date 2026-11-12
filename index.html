@@ -18,8 +18,9 @@
   <nav class="nav" id="nav">
     <div class="nav-inner">
       <a href="#hero" class="nav-logo">
-        <img src="loguito.jpg" alt="San del Pulpo" style="height: 40px; width: auto; border-radius: 8px;">
-        San del Pulpo
+<div class="pulpito-animado">
+    <img src="pulpito-flotante.png" alt="Pulpito del San" style="width: 150px; height: auto;">
+</div>        San del Pulpo
       </a>
       <ul class="nav-links" id="navLinks">
         <li><a href="#about">El San</a></li>
@@ -60,6 +61,12 @@
         </div>
         <div class="hero-img-card" style="width: 100%; max-width: 300px; border-radius: 15px; overflow: hidden;">
           <img src="f6.jpg" alt="Cesta de Víveres" style="width: 100%; height: auto; display: block;">
+                  <!-- Sticker de usuarios -->
+        <div style="width: 100%; text-align: center; margin-top: 20px; padding-bottom: 20px;">
+            <span style="background: var(--accent); color: var(--bg); padding: 10px 25px; border-radius: 30px; font-weight: bold; font-size: 1rem; display: inline-block; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+                +500.000 usuarios 🚀
+            </span>
+        </div>
         </div>
       </div>
   </section>
@@ -466,6 +473,73 @@ function copiarEnlace() {
       </div>
       <p style="color: var(--text); font-weight: bold;">Premios: Gorra del Pulpo, Franela, Lapicero.</p>
     </div>
+    <!-- ── PANEL DE CONTROL DEL AFILIADO ── -->
+<section class="panel-afiliado" id="panel-afiliado" style="background: var(--bg-alt); padding: 80px 0;">
+  <div class="container" style="max-width: 900px; margin: 0 auto;">
+    <div class="reveal" style="text-align: center; margin-bottom: 40px;">
+      <span class="section-label"><span class="dot"></span> Mi Ficha</span>
+      <h2 class="section-title" style="color: var(--text);">Bienvenido, <span style="color: var(--accent);">[Nombre del Afiliado]</span></h2>
+      <p class="section-desc">Aquí tienes tu información y la de tu grupo. Transparencia total.</p>
+    </div>
+
+    <!-- Tarjeta de Presentación -->
+    <div style="background: var(--surface); border-radius: 20px; padding: 30px; border: 2px solid var(--accent); margin-bottom: 30px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
+      <div style="width: 100px; height: 100px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; font-weight: bold; color: var(--bg);">
+        [Inicial]
+      </div>
+      <div>
+        <h3 style="color: var(--text); font-size: 1.8rem; margin: 0;">[Nombre Completo]</h3>
+        <p style="color: var(--text-2); margin: 5px 0;">Rol: <strong style="color: var(--accent);">Afiliado</strong> · Estado: <strong style="color: #25d366;">Activo</strong></p>
+        <p style="color: var(--text-2); margin: 5px 0;">Negocio: <strong style="color: var(--text);">[Nombre del Negocio]</strong></p>
+      </div>
+    </div>
+
+    <!-- Mi Grupo -->
+    <div style="background: var(--surface); border-radius: 20px; padding: 30px; border: 1px solid var(--surface); margin-bottom: 30px;">
+      <h3 style="color: var(--accent); margin-bottom: 20px;">👥 Mi Grupo</h3>
+      <ul style="list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px;">
+        <li style="display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,0.2); padding: 10px; border-radius: 10px;">
+          <span style="color: #25d366;">✅</span> <span style="color: var(--text);">María Rodríguez</span>
+        </li>
+        <li style="display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,0.2); padding: 10px; border-radius: 10px;">
+          <span style="color: #25d366;">✅</span> <span style="color: var(--text);">José Pérez</span>
+        </li>
+        <li style="display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,0.2); padding: 10px; border-radius: 10px;">
+          <span style="color: #fbbf24;">⏳</span> <span style="color: var(--text);">Yolanda Méndez</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Mis Pagos -->
+    <div style="background: var(--surface); border-radius: 20px; padding: 30px; border: 1px solid var(--surface); margin-bottom: 30px;">
+      <h3 style="color: var(--accent); margin-bottom: 20px;">💳 Mis Pagos</h3>
+      <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+        <span style="color: var(--text-2);">Pagado:</span> <strong style="color: #25d366;">$30</strong>
+      </div>
+      <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+        <span style="color: var(--text-2);">Falta por pagar:</span> <strong style="color: #fbbf24;">$70</strong>
+      </div>
+      <div style="display: flex; justify-content: space-between;">
+        <span style="color: var(--text-2);">Total del San:</span> <strong style="color: var(--text);">$100</strong>
+      </div>
+      <div style="background: rgba(0,0,0,0.3); border-radius: 10px; height: 10px; margin-top: 15px; overflow: hidden;">
+        <div style="background: #25d366; width: 30%; height: 100%;"></div>
+      </div>
+    </div>
+
+    <!-- Compartir y Ganar -->
+    <div style="background: var(--surface); border-radius: 20px; padding: 30px; border: 2px solid var(--accent); margin-bottom: 30px;">
+      <h3 style="color: var(--accent); margin-bottom: 20px;">📤 Comparte y Gana</h3>
+      <p style="color: var(--text-2); margin-bottom: 15px;">Invita a tus amigos a unirse al San del Pulpo. Por cada referido, ganas puntos y cupones para la Ruleta.</p>
+      <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+        <input type="text" value="https://san-pulpo.guia-digital.com/ref/[TU-CODIGO]" readonly style="flex: 1; min-width: 200px; padding: 10px; border-radius: 10px; border: 1px solid var(--accent); background: rgba(0,0,0,0.3); color: var(--text);">
+        <button onclick="copiarEnlace()" style="background: var(--accent); color: var(--bg); border: none; padding: 10px 20px; border-radius: 10px; font-weight: bold; cursor: pointer;">Copiar Enlace</button>
+      </div>
+      <p style="color: var(--text); margin-top: 15px;">Tus referidos: <strong>3</strong> · Tus puntos: <strong>150</strong></p>
+    </div>
+
+  </div>
+</section>
 
     <!-- Souvenirs del Pulpo -->
     <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 20px;">
