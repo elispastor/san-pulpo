@@ -5,51 +5,517 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="San del Pulpo — Ahorra en comunidad, recibe cuando te toca. El primer San digital con transparencia total.">
   <meta name="theme-color" content="#fbbf24">
+
   <link rel="icon" href="pulpito.png">
+
   <title>San del Pulpo — Ahorro en Comunidad</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="tooplate-2169-hustle-bee.css">
-  
+
   <style>
-    /* Animación del pulpito */
-    .pulpito-animado {
-        animation: flotar 3s ease-in-out infinite;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    @keyframes flotar {
-        0% { transform: translateY(0px); }
-        50% { transform: translateY(-15px); }
-        100% { transform: translateY(0px); }
+    /* Variables utilizadas por las secciones adicionales */
+    :root {
+      --accent: var(--honey, #FFBA08);
+      --bg: var(--cream, #FFFBF0);
+      --bg-alt: var(--cream-alt, #FFF6E0);
+      --surface: var(--white, #FFFFFF);
+      --text: var(--dark, #2B2118);
+      --text-2: var(--brown, #6B4D32);
     }
 
-    /* Estilos del logo en el menú */
-    .nav-logo {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        text-decoration: none;
+    /* Animación del pulpito */
+    .pulpito-animado {
+      animation: flotar 3s ease-in-out infinite;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
+
+    @keyframes flotar {
+      0%, 100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-15px);
+      }
+    }
+
+    /* Logo del menú */
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
     .nav-logo-img {
-        width: 38px;
-        height: 38px;
-        object-fit: contain;
-        display: block;
+      width: 38px;
+      height: 38px;
+      object-fit: contain;
+      display: block;
+      flex-shrink: 0;
+    }
+
+    /* Encabezado: altura libre y espacio para el menú fijo */
+    #hero {
+      position: relative;
+      display: block;
+      width: 100%;
+      min-height: auto;
+      height: auto;
+      padding: 110px 20px 60px;
+      overflow: hidden;
+    }
+
+    #hero > .container {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    #hero .hero-text {
+      flex: 1 1 300px;
+      min-width: 0;
+      text-align: center;
+    }
+
+    #hero .hero-badge {
+      margin: 0 auto 20px;
+      max-width: 100%;
+    }
+
+    #hero .hero-tagline {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    #hero .hero-actions {
+      justify-content: center;
+    }
+
+    /* Sin alturas fijas: las tres imágenes caben completas */
+    #hero .hero-visual {
+      position: relative;
+      flex: 1 1 300px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 20px;
+      width: 100%;
+      min-width: 0;
+      height: auto;
+    }
+
+    #hero .hero-img-card {
+      position: relative;
+      flex: 0 1 300px;
+      width: 100%;
+      max-width: 300px;
+      min-width: 0;
+      height: auto;
+      margin: 0;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    #hero .hero-img-card img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    /* Sticker de usuarios: fuera de las tarjetas */
+    #hero .hero-sticker-wrap {
+      flex: 0 0 100%;
+      display: flex;
+      justify-content: center;
+      padding: 14px 0 8px;
+    }
+
+    #hero .hero-users-sticker {
+      display: inline-block;
+      max-width: 100%;
+      padding: 12px 24px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: var(--text);
+      font-family: var(--font-display, sans-serif);
+      font-size: 1rem;
+      font-weight: 800;
+      text-align: center;
+      box-shadow: 0 8px 24px rgba(43, 33, 24, 0.14);
+    }
+
+    /* La línea decorativa del CSS original se conserva */
+    #about {
+      padding: 65px 0 75px;
+    }
+
+    #about .about-grid {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 40px;
+    }
+
+    /* Pulpito y sticker en filas separadas */
+    #about .about-photo-wrap {
+      position: relative;
+      flex: 1 1 300px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      min-width: 0;
+      padding: 20px 12px;
+      overflow: visible;
+    }
+
+    #about .about-photo-wrap .pulpito-animado {
+      width: 100%;
+      max-width: 350px;
+    }
+
+    #about .about-photo-wrap img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    #about .about-photo-sticker {
+      position: static;
+      inset: auto;
+      align-self: center;
+      display: inline-block;
+      max-width: 100%;
+      margin: 0;
+      padding: 12px 25px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: var(--text);
+      font-family: var(--font-display, sans-serif);
+      font-size: 1rem;
+      font-weight: 800;
+      text-align: center;
+      text-decoration: none;
+      transform: rotate(-5deg);
+      animation: none;
+      box-shadow: 0 6px 18px rgba(43, 33, 24, 0.12);
+    }
+
+    #about .about-text {
+      flex: 1 1 400px;
+      min-width: 0;
+    }
+
+    #about .about-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    #about .stat-number {
+      color: var(--accent);
+      font-size: 1.5rem;
+      font-weight: 800;
+    }
+
+    /* Estilos compartidos por los paneles */
+    .san-panel {
+      background: var(--bg-alt);
+      padding: 80px 0;
+    }
+
+    .san-panel > .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .panel-heading {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .panel-heading .section-desc {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .panel-card {
+      background: var(--surface);
+      border: 1px solid rgba(43, 33, 24, 0.08);
+      border-radius: 20px;
+      padding: 30px;
+      margin-bottom: 30px;
+      min-width: 0;
+    }
+
+    .panel-card-accent {
+      border: 2px solid var(--accent);
+    }
+
+    .panel-card h3 {
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+
+    .panel-profile {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .panel-avatar {
+      width: 80px;
+      height: 80px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      background: var(--accent);
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 800;
+    }
+
+    .panel-avatar-large {
+      width: 100px;
+      height: 100px;
+    }
+
+    .panel-profile h3 {
+      color: var(--text);
+      font-size: 1.5rem;
+      margin: 0;
+      overflow-wrap: anywhere;
+    }
+
+    .panel-profile p {
+      color: var(--text-2);
+      margin: 5px 0;
+    }
+
+    .panel-members {
+      list-style: none;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+    }
+
+    .panel-members li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--bg-alt);
+      padding: 12px;
+      border-radius: 10px;
+      color: var(--text);
+    }
+
+    .panel-progress {
+      height: 20px;
+      margin-top: 15px;
+      background: rgba(43, 33, 24, 0.12);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .panel-progress-fill {
+      width: 30%;
+      height: 100%;
+      background: var(--accent);
+    }
+
+    .panel-progress-small {
+      height: 10px;
+    }
+
+    .panel-progress-small .panel-progress-fill {
+      background: #25d366;
+    }
+
+    .panel-progress-caption {
+      color: var(--text-2);
+      font-size: 0.8rem;
+      margin-top: 5px;
+    }
+
+    .referral-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .referral-input {
+      flex: 1 1 200px;
+      width: 100%;
+      min-width: 0;
+      padding: 12px;
+      border: 1px solid var(--accent);
+      border-radius: 10px;
+      background: var(--bg);
+      color: var(--text);
+      font: inherit;
+    }
+
+    .referral-button {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 10px;
+      background: var(--accent);
+      color: var(--text);
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .whatsapp-button {
+      background: #25d366;
+      color: #fff;
+      padding: 15px 30px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 800;
+    }
+
+    .panel-center {
+      text-align: center;
+    }
+
+    .payment-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      margin-bottom: 10px;
+    }
+
+    .payment-row:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .closing-wheel {
+      width: 200px;
+      height: 200px;
+      margin: 0 auto 20px;
+      border: 4px solid var(--text);
+      border-radius: 50%;
+      background: conic-gradient(
+        var(--accent) 0deg 45deg,
+        var(--bg) 45deg 90deg,
+        var(--accent) 90deg 135deg,
+        var(--bg) 135deg 180deg,
+        var(--accent) 180deg 225deg,
+        var(--bg) 225deg 270deg,
+        var(--accent) 270deg 315deg,
+        var(--bg) 315deg 360deg
+      );
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .closing-wheel-label {
+      padding: 10px 20px;
+      border-radius: 30px;
+      background: var(--bg);
+      color: var(--text);
+      font-weight: 800;
+    }
+
+    .souvenirs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+    }
+
+    .souvenir-card {
+      background: var(--surface);
+      border: 1px solid var(--accent);
+      border-radius: 15px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .souvenir-icon {
+      font-size: 3rem;
+    }
+
+    .souvenir-card p {
+      color: var(--text);
+      font-weight: 800;
+    }
+
+    @media (max-width: 768px) {
+      #hero {
+        padding: 100px 12px 45px;
+      }
+
+      #hero .hero-visual {
+        flex-basis: 100%;
+        height: auto;
+        gap: 20px;
+      }
+
+      #about {
+        padding-top: 50px;
+        padding-bottom: 55px;
+      }
+
+      #about .about-photo-wrap {
+        flex-basis: 100%;
+      }
+
+      #about .about-photo-wrap .pulpito-animado {
+        max-width: 280px;
+      }
+
+      .san-panel {
+        padding: 55px 0;
+      }
+
+      .panel-card {
+        padding: 22px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .pulpito-animado {
+        animation: none;
+      }
     }
   </style>
 </head>
+
 <body>
 
   <!-- NAV -->
   <nav class="nav" id="nav">
     <div class="nav-inner">
       <a href="#hero" class="nav-logo">
-        <img src="pulpito.png" alt="Pulpito del San" class="nav-logo-img pulpito-animado">
+        <img
+          src="pulpito.png"
+          alt="Pulpito del San"
+          class="nav-logo-img pulpito-animado"
+        >
         San del Pulpo
       </a>
+
       <ul class="nav-links" id="navLinks">
         <li><a href="#about">El San</a></li>
         <li><a href="#skills">Beneficios</a></li>
@@ -58,70 +524,130 @@
         <li><a href="#experience">Comunidad</a></li>
         <li><a href="#contact" class="nav-cta">Unirme</a></li>
       </ul>
-      <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span></button>
+
+      <button
+        type="button"
+        class="nav-toggle"
+        id="navToggle"
+        aria-label="Abrir o cerrar menú"
+      >
+        <span></span>
+      </button>
     </div>
   </nav>
-    <!-- HERO -->
-  <section class="hero" id="hero" style="overflow: hidden; width: 100%; padding: 40px 20px;">
-    <div class="hero-bg">
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-bg" aria-hidden="true">
       <div class="hero-blob hero-blob-1"></div>
       <div class="hero-blob hero-blob-2"></div>
       <div class="hero-blob hero-blob-3"></div>
       <div class="hero-honeycomb"></div>
     </div>
-    <div class="container" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 30px;">
-      <div class="hero-text" style="flex: 1 1 300px; text-align: center;">
-        <div class="hero-badge" style="margin: 0 auto 20px;"><span class="status-dot"></span> Comunidad Activa en Venezuela</div>
-        <h1 class="hero-name">Ahorra en comunidad,<br><span class="highlight">recibe cuando te toca.</span></h1>
-        <p class="hero-tagline">El San del Pulpo une a tu grupo, tus pagos y tu turno en un solo lugar. Transparente, seguro y con la confianza de tu comunidad.</p>
-        <div class="hero-actions" style="justify-content: center;">
+
+    <div class="container">
+      <div class="hero-text">
+        <div class="hero-badge">
+          <span class="status-dot"></span>
+          Comunidad Activa en Venezuela
+        </div>
+
+        <h1 class="hero-name">
+          Ahorra en comunidad,<br>
+          <span class="highlight">recibe cuando te toca.</span>
+        </h1>
+
+        <p class="hero-tagline">
+          El San del Pulpo une a tu grupo, tus pagos y tu turno en un solo
+          lugar. Transparente, seguro y con la confianza de tu comunidad.
+        </p>
+
+        <div class="hero-actions">
           <a href="#projects" class="btn btn-primary">Ver Historias ↓</a>
           <a href="#contact" class="btn btn-secondary">Unirme al San</a>
         </div>
       </div>
-            <div class="hero-visual" style="flex: 1 1 300px; display: flex; flex-wrap: wrap; gap: 15px; justify-content: center;">
-        <div class="hero-img-card" style="width: 100%; max-width: 300px; border-radius: 15px; overflow: hidden;">
-          <img src="f4.jpg" alt="Comunidad del San" style="width: 100%; height: auto; display: block;">
+
+      <div class="hero-visual">
+        <div class="hero-img-card">
+          <img src="f4.jpg" alt="Comunidad del San">
         </div>
-        <div class="hero-img-card" style="width: 100%; max-width: 300px; border-radius: 15px; overflow: hidden;">
-          <img src="f5.jpg" alt="El Giro del Pulpo" style="width: 100%; height: auto; display: block;">
+
+        <div class="hero-img-card">
+          <img src="f5.jpg" alt="El Giro del Pulpo">
         </div>
-        <div class="hero-img-card" style="width: 100%; max-width: 300px; border-radius: 15px; overflow: hidden;">
-          <img src="f6.jpg" alt="Cesta de Víveres" style="width: 100%; height: auto; display: block;">
-                  <!-- Sticker de usuarios -->
-        <div style="width: 100%; text-align: center; margin-top: 20px; padding-bottom: 20px;">
-            <span style="background: var(--accent); color: var(--bg); padding: 10px 25px; border-radius: 30px; font-weight: bold; font-size: 1rem; display: inline-block; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
-                +500.000 usuarios 🚀
-            </span>
+
+        <div class="hero-img-card">
+          <img src="f6.jpg" alt="Cesta de Víveres">
         </div>
+
+        <!-- Sticker independiente de las tarjetas -->
+        <div class="hero-sticker-wrap">
+          <span class="hero-users-sticker">
+            +500.000 usuarios 🚀
+          </span>
         </div>
       </div>
+    </div>
   </section>
 
   <!-- ABOUT -->
   <section class="about" id="about">
     <div class="container">
-      <div class="about-grid" style="display: flex; flex-wrap: wrap; gap: 40px; align-items: center;">
-        
-        <!-- Lado izquierdo: El Pulpito -->
-        <div class="about-photo-wrap reveal" style="flex: 1 1 300px; display: flex; justify-content: center; position: relative;">
-          <div class="pulpito-animado" style="width: 100%; max-width: 350px;">
-            <img src="https://em-content.zobj.net/source/apple/391/octopus_1f419.png" alt="Pulpito del San" style="width: 100%; height: auto; display: block;">
+      <div class="about-grid">
+
+        <!-- Pulpito y sticker separados de la línea -->
+        <div class="about-photo-wrap reveal">
+          <div class="pulpito-animado">
+            <img src="pulpito.png" alt="Pulpito del San">
           </div>
-          <!-- Sticker corregido: separado de la raya con bottom y right en 25px -->
-          <div class="about-photo-sticker" style="position: absolute; bottom: 25px; right: 25px; background: var(--accent); color: var(--bg); padding: 8px 15px; border-radius: 20px; font-weight: bold; transform: rotate(-5deg); box-shadow: 0 4px 10px rgba(0,0,0,0.3);">✌️ ¡Únete!</div>
+
+          <a href="#contact" class="about-photo-sticker">
+            ✌️ ¡Únete!
+          </a>
         </div>
 
-        <!-- Lado derecho: El Texto -->
-        <div class="about-text reveal reveal-delay-1" style="flex: 1 1 400px;">
-          <span class="section-label"><span class="dot"></span> ¿Qué es el San del Pulpo?</span>
-          <h2 class="section-title">El sistema de ahorro<br>que reparte confianza.</h2>
-          <p>El San del Pulpo es un sistema de ahorro rotativo digital donde un grupo de personas aporta una cuota fija y, por turnos, cada uno recibe el monto total. La diferencia es que usamos la tecnología para garantizar la transparencia y la seguridad.</p>
-          <p>No somos una pirámide ni una captación ilegal de dinero. El dinero se mueve directamente entre los participantes. Además, implementamos un depósito de garantía para proteger a todos los miembros del grupo.</p>
-          <div class="about-stats" style="display: flex; gap: 20px; margin-top: 20px;">
-            <div class="stat-item"><span class="stat-number" style="color: var(--accent); font-weight: bold; font-size: 1.5rem;">12 $ </span><br><span class="stat-label">Semanal</span></div>
-            <div class="stat-item"><span class="stat-number" style="color: var(--accent); font-weight: bold; font-size: 1.5rem;">100 $ </span><br><span class="stat-label">por tanda</span></div>
-            <div class="stat-item"><span class="stat-number" style="color: var(--accent); font-weight: bold; font-size: 1.5rem;"></span><br><span class="stat-label">+Premio en cada cierre de tandas</span></div>
+        <div class="about-text reveal reveal-delay-1">
+          <span class="section-label">
+            <span class="dot"></span>
+            ¿Qué es el San del Pulpo?
+          </span>
+
+          <h2 class="section-title">
+            El sistema de ahorro<br>
+            que reparte confianza.
+          </h2>
+
+          <p>
+            El San del Pulpo es un sistema de ahorro rotativo digital donde
+            un grupo de personas aporta una cuota fija y, por turnos, cada
+            uno recibe el monto total. La diferencia es que usamos la
+            tecnología para garantizar la transparencia y la seguridad.
+          </p>
+
+          <p>
+            No somos una pirámide ni una captación ilegal de dinero. El
+            dinero se mueve directamente entre los participantes. Además,
+            implementamos un depósito de garantía para proteger a todos
+            los miembros del grupo.
+          </p>
+
+          <div class="about-stats">
+            <div class="stat-item">
+              <span class="stat-number">12 $</span>
+              <span class="stat-label">Semanal</span>
+            </div>
+
+            <div class="stat-item">
+              <span class="stat-number">100 $</span>
+              <span class="stat-label">por tanda</span>
+            </div>
+
+            <div class="stat-item">
+              <span class="stat-label">
+                +Premio en cada cierre de tandas
+              </span>
+            </div>
           </div>
         </div>
 
@@ -129,186 +655,303 @@
     </div>
   </section>
 
-  <!-- SKILLS — BENTO (BENEFICIOS) -->
+  <!-- BENEFICIOS -->
   <section class="skills" id="skills">
     <div class="container">
       <div class="skills-header reveal">
-        <span class="section-label"><span class="dot"></span> Beneficios</span>
+        <span class="section-label">
+          <span class="dot"></span>
+          Beneficios
+        </span>
+
         <h2 class="section-title">Todo lo que ganas con el Pulpo.</h2>
-        <p class="section-desc">Cada función está pensada para que ahorrar sea seguro, transparente y en equipo.</p>
+
+        <p class="section-desc">
+          Cada función está pensada para que ahorrar sea seguro,
+          transparente y en equipo.
+        </p>
       </div>
+
       <div class="skills-bento">
         <div class="skill-bento-card span-2 reveal-scale">
           <img class="skill-bento-img" src="f7.jpg" alt="Turno Garantizado">
+
           <div class="skill-bento-overlay">
             <span class="skill-bento-name">Turno Garantizado</span>
-            <span class="skill-bento-desc">Usamos un depósito de garantía y un fondo de reserva para que siempre recibas tu dinero en la fecha que te toca.</span>
+            <span class="skill-bento-desc">
+              Usamos un depósito de garantía y un fondo de reserva para
+              que siempre recibas tu dinero en la fecha que te toca.
+            </span>
           </div>
+
           <span class="skill-bento-level">Seguro</span>
         </div>
+
         <div class="skill-bento-card reveal-scale reveal-delay-1">
           <img class="skill-bento-img" src="f4.jpg" alt="Comunidad Verificada">
+
           <div class="skill-bento-overlay">
             <span class="skill-bento-name">Comunidad Verificada</span>
-            <span class="skill-bento-desc">Cada participante verifica su identidad para que tu grupo esté formado por personas reales.</span>
+            <span class="skill-bento-desc">
+              Cada participante verifica su identidad para que tu grupo
+              esté formado por personas reales.
+            </span>
           </div>
+
           <span class="skill-bento-level">Confiable</span>
         </div>
+
         <div class="skill-bento-card reveal-scale reveal-delay-2">
           <img class="skill-bento-img" src="f5.jpg" alt="Ruleta del Pulpo">
+
           <div class="skill-bento-overlay">
             <span class="skill-bento-name">Ruleta del Pulpo</span>
-            <span class="skill-bento-desc">Ahorra y gana. Cada vez que participas, tienes la oportunidad de girar la ruleta y ganar una cesta de víveres.</span>
+            <span class="skill-bento-desc">
+              Ahorra y gana. Cada vez que participas, tienes la oportunidad
+              de girar la ruleta y ganar una cesta de víveres.
+            </span>
           </div>
+
           <span class="skill-bento-level">Premios</span>
         </div>
+
         <div class="skill-bento-card tall reveal-scale">
           <img class="skill-bento-img" src="f6.jpg" alt="Coordinadores en Red">
+
           <div class="skill-bento-overlay">
             <span class="skill-bento-name">Coordinadores en Red</span>
-            <span class="skill-bento-desc">Gana un 5% extra por ser coordinador de tu propio grupo. Tú reúnes a tu comunidad, el Pulpo te da la herramienta.</span>
+            <span class="skill-bento-desc">
+              Gana un 5% extra por ser coordinador de tu propio grupo.
+              Tú reúnes a tu comunidad, el Pulpo te da la herramienta.
+            </span>
           </div>
+
           <span class="skill-bento-level">Liderazgo</span>
         </div>
+
         <div class="skill-bento-card reveal-scale reveal-delay-1">
           <img class="skill-bento-img" src="f7.jpg" alt="Pagos Seguros">
+
           <div class="skill-bento-overlay">
             <span class="skill-bento-name">Pagos Seguros</span>
-            <span class="skill-bento-desc">Pago Móvil y Binance. Tú eliges cómo pagar, nosotros garantizamos que llegue.</span>
+            <span class="skill-bento-desc">
+              Pago Móvil y Binance. Tú eliges cómo pagar, nosotros
+              garantizamos que llegue.
+            </span>
           </div>
+
           <span class="skill-bento-level">Flexible</span>
         </div>
+
         <div class="skill-bento-card reveal-scale reveal-delay-2">
           <img class="skill-bento-img" src="f4.jpg" alt="Soporte 24/7">
+
           <div class="skill-bento-overlay">
             <span class="skill-bento-name">Soporte 24/7</span>
-            <span class="skill-bento-desc">Nuestro equipo y el Pulpo Cordial están disponibles para ayudarte en todo momento.</span>
+            <span class="skill-bento-desc">
+              Nuestro equipo y el Pulpo Cordial están disponibles para
+              ayudarte en todo momento.
+            </span>
           </div>
+
           <span class="skill-bento-level">Atención</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PROJECTS — DIAGONAL SPLIT (HISTORIAS) -->
+  <!-- HISTORIAS -->
   <section class="projects" id="projects">
     <div class="container">
       <div class="reveal">
-        <span class="section-label"><span class="dot"></span> Historias de Éxito</span>
+        <span class="section-label">
+          <span class="dot"></span>
+          Historias de Éxito
+        </span>
+
         <h2 class="section-title">Lo que dice nuestra comunidad.</h2>
-        <p class="section-desc">Personas reales que ya están transformando su economía con el San del Pulpo.</p>
+
+        <p class="section-desc">
+          Personas reales que ya están transformando su economía con
+          el San del Pulpo.
+        </p>
       </div>
 
       <div class="projects-list">
-        <!-- TESTIMONIO 1: YOLANDA MÉNDEZ (TU ESPOSA) -->
+        <!-- TESTIMONIO 1 -->
         <div class="project-card reveal">
           <div class="project-card-img">
             <img src="t2.jpg" alt="Yolanda Méndez">
           </div>
+
           <div class="project-info">
             <span class="project-number">01</span>
             <span class="project-tag">Emprendedora</span>
+
             <h3 class="project-title">Yolanda Méndez</h3>
- <p class="project-desc">"He participado en exámenes anteriores y sé que funciona con personas cumplidoras de sus obligaciones. Con este San, y con los requisitos que tiene, se blinda, se asegura y se garantiza más la entrega de fondos. Lo importante es garantizar la entrega del dinero. Por eso apoyo este proyecto e invito a que participen y se den cuenta de que la transparencia en este sistema es la prueba de su éxito."</p>
+
+            <p class="project-desc">
+              "He participado en exámenes anteriores y sé que funciona
+              con personas cumplidoras de sus obligaciones. Con este San,
+              y con los requisitos que tiene, se blinda, se asegura y se
+              garantiza más la entrega de fondos. Lo importante es
+              garantizar la entrega del dinero. Por eso apoyo este
+              proyecto e invito a que participen y se den cuenta de que
+              la transparencia en este sistema es la prueba de su éxito."
+            </p>
 
             <div class="project-stack">
               <span class="project-stack-pill">La Cumaca - San Diego</span>
               <span class="project-stack-pill">Venezuela</span>
             </div>
-            <a href="#" class="project-link">Ver su historia <span class="project-link-arrow">→</span></a>
+
+            <a href="#" class="project-link">
+              Ver su historia
+              <span class="project-link-arrow">→</span>
+            </a>
           </div>
         </div>
 
-        <!-- TESTIMONIO 2: MARÍA RODRÍGUEZ -->
+        <!-- TESTIMONIO 2 -->
         <div class="project-card reveal">
           <div class="project-card-img">
             <img src="f5.jpg" alt="María Rodríguez">
           </div>
+
           <div class="project-info">
             <span class="project-number">02</span>
             <span class="project-tag">Emprendedora</span>
+
             <h3 class="project-title">María Rodríguez</h3>
-            <p class="project-desc">"El San del Pulpo me ayudó a cumplir mi meta. La ruleta es súper transparente y la comunidad es muy unida."</p>
+
+            <p class="project-desc">
+              "El San del Pulpo me ayudó a cumplir mi meta. La ruleta es
+              súper transparente y la comunidad es muy unida."
+            </p>
+
             <div class="project-stack">
               <span class="project-stack-pill">Caracas</span>
               <span class="project-stack-pill">Meta Cumplida</span>
             </div>
-            <a href="#" class="project-link">Ver su historia <span class="project-link-arrow">→</span></a>
+
+            <a href="#" class="project-link">
+              Ver su historia
+              <span class="project-link-arrow">→</span>
+            </a>
           </div>
         </div>
 
-        <!-- TESTIMONIO 3: JOSÉ PÉREZ -->
+        <!-- TESTIMONIO 3 -->
         <div class="project-card reveal">
           <div class="project-card-img">
             <img src="f6.jpg" alt="José Pérez">
           </div>
+
           <div class="project-info">
             <span class="project-number">03</span>
             <span class="project-tag">Comerciante</span>
+
             <h3 class="project-title">José Pérez</h3>
-            <p class="project-desc">"Es la forma más segura de ahorrar en comunidad. Ya no le tengo miedo a los morosos."</p>
+
+            <p class="project-desc">
+              "Es la forma más segura de ahorrar en comunidad.
+              Ya no le tengo miedo a los morosos."
+            </p>
+
             <div class="project-stack">
               <span class="project-stack-pill">Valencia</span>
               <span class="project-stack-pill">Ahorro Seguro</span>
             </div>
-            <a href="#" class="project-link">Ver su historia <span class="project-link-arrow">→</span></a>
+
+            <a href="#" class="project-link">
+              Ver su historia
+              <span class="project-link-arrow">→</span>
+            </a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- EDUCATION — VISUAL CARDS (CÓMO FUNCIONA) -->
+  <!-- CÓMO FUNCIONA -->
   <section class="education" id="education">
     <div class="container">
       <div class="reveal">
-        <span class="section-label"><span class="dot"></span> Cómo Funciona</span>
+        <span class="section-label">
+          <span class="dot"></span>
+          Cómo Funciona
+        </span>
+
         <h2 class="section-title">Tu San en 3 pasos.</h2>
         <p class="section-desc">Simple, transparente y sin enredos.</p>
       </div>
+
       <div class="edu-cards">
         <div class="edu-card reveal">
           <div class="edu-card-img">
             <img src="f4.jpg" alt="Paso 1">
             <span class="edu-card-year">Paso 1</span>
           </div>
+
           <div class="edu-card-body">
             <h3 class="edu-card-title">Regístrate</h3>
-            <p class="edu-card-desc">Crea tu cuenta y verifica tu identidad. Solo necesitas tu cédula y una selfie.</p>
+            <p class="edu-card-desc">
+              Crea tu cuenta y verifica tu identidad.
+              Solo necesitas tu cédula y una selfie.
+            </p>
           </div>
         </div>
+
         <div class="edu-card reveal reveal-delay-1">
           <div class="edu-card-img">
             <img src="f5.jpg" alt="Paso 2">
             <span class="edu-card-year">Paso 2</span>
           </div>
+
           <div class="edu-card-body">
             <h3 class="edu-card-title">Únete a un Grupo</h3>
-            <p class="edu-card-desc">Elige un San con personas de tu comunidad. El monto y la frecuencia los decides tú.</p>
+            <p class="edu-card-desc">
+              Elige un San con personas de tu comunidad.
+              El monto y la frecuencia los decides tú.
+            </p>
           </div>
         </div>
+
         <div class="edu-card reveal reveal-delay-2">
           <div class="edu-card-img">
             <img src="f6.jpg" alt="Paso 3">
             <span class="edu-card-year">Paso 3</span>
           </div>
+
           <div class="edu-card-body">
             <h3 class="edu-card-title">Gira y Recibe</h3>
-            <p class="edu-card-desc">La Ruleta del Pulpo decide quién recibe. Sin sorpresas, sin trampas. ¡Tú ganas!</p>
+            <p class="edu-card-desc">
+              La Ruleta del Pulpo decide quién recibe.
+              Sin sorpresas, sin trampas. ¡Tú ganas!
+            </p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- EXPERIENCE — CARDS WITH IMAGES + MARQUEE (COMUNIDAD) -->
+  <!-- COMUNIDAD -->
   <section class="experience" id="experience">
     <div class="container">
       <div class="reveal">
-        <span class="section-label"><span class="dot"></span> Nuestra Comunidad</span>
+        <span class="section-label">
+          <span class="dot"></span>
+          Nuestra Comunidad
+        </span>
+
         <h2 class="section-title">Un equipo que crece contigo.</h2>
-        <p class="section-desc">No estás solo. El San del Pulpo es una red de personas que se apoyan y crecen juntas.</p>
+
+        <p class="section-desc">
+          No estás solo. El San del Pulpo es una red de personas
+          que se apoyan y crecen juntas.
+        </p>
       </div>
+
       <div class="exp-marquee">
         <div class="exp-marquee-track">
           <span class="exp-marquee-item">Coordinadores</span>
@@ -325,17 +968,24 @@
           <span class="exp-marquee-item">Familias</span>
         </div>
       </div>
+
       <div class="exp-grid">
         <div class="exp-card reveal">
           <div class="exp-card-img">
             <img src="f6.jpg" alt="Venta de Plátanos">
             <span class="exp-card-duration">Tu negocio</span>
           </div>
+
           <div class="exp-card-body">
             <span class="exp-card-period">Compra Solidaria</span>
             <h3 class="exp-card-role">Plátanos al Mayor</h3>
             <p class="exp-card-company">La Bendición de Dios</p>
-            <p class="exp-card-desc">Compra tus plátanos a precio justo. Con cada kilo, ayudas a construir el comedor comunitario de La Cumaca.</p>
+
+            <p class="exp-card-desc">
+              Compra tus plátanos a precio justo. Con cada kilo, ayudas
+              a construir el comedor comunitario de La Cumaca.
+            </p>
+
             <div class="exp-tags">
               <span class="exp-tag">Plátano</span>
               <span class="exp-tag">Comunidad</span>
@@ -343,16 +993,23 @@
             </div>
           </div>
         </div>
+
         <div class="exp-card reveal reveal-delay-1">
           <div class="exp-card-img">
             <img src="f7.jpg" alt="Bodegas">
             <span class="exp-card-duration">Tu aliado</span>
           </div>
+
           <div class="exp-card-body">
             <span class="exp-card-period">Fidelización</span>
             <h3 class="exp-card-role">Bodegas y Abastos</h3>
             <p class="exp-card-company">Red de Comercios</p>
-            <p class="exp-card-desc">Tu bodega se vuelve parte de la red. Atrae más clientes con el Giro del Pulpo y fideliza a tu comunidad.</p>
+
+            <p class="exp-card-desc">
+              Tu bodega se vuelve parte de la red. Atrae más clientes con
+              el Giro del Pulpo y fideliza a tu comunidad.
+            </p>
+
             <div class="exp-tags">
               <span class="exp-tag">Clientes</span>
               <span class="exp-tag">Fidelización</span>
@@ -360,16 +1017,23 @@
             </div>
           </div>
         </div>
+
         <div class="exp-card reveal reveal-delay-2">
           <div class="exp-card-img">
             <img src="f4.jpg" alt="Coordinadores">
             <span class="exp-card-duration">Tu liderazgo</span>
           </div>
+
           <div class="exp-card-body">
             <span class="exp-card-period">Red de Apoyo</span>
             <h3 class="exp-card-role">Coordinadores</h3>
             <p class="exp-card-company">Gana un 5% extra</p>
-            <p class="exp-card-desc">Reúne a tu comunidad, organiza Sanes y gana un 5% de comisión por cada grupo que gestiones.</p>
+
+            <p class="exp-card-desc">
+              Reúne a tu comunidad, organiza Sanes y gana un 5% de
+              comisión por cada grupo que gestiones.
+            </p>
+
             <div class="exp-tags">
               <span class="exp-tag">Liderazgo</span>
               <span class="exp-tag">Comisión</span>
@@ -381,236 +1045,476 @@
     </div>
   </section>
 
-  <!-- CONTACT -->
+  <!-- CONTACTO -->
   <section class="contact" id="contact">
     <div class="container">
       <div class="reveal">
-        <span class="section-label"><span class="dot"></span> Únete</span>
-        <h2 class="section-title">¿Listo para dar<br>el primer paso?</h2>
-        <p class="section-desc">Escríbenos y te ayudamos a empezar tu primer San. La comunidad te espera.</p>
+        <span class="section-label">
+          <span class="dot"></span>
+          Únete
+        </span>
+
+        <h2 class="section-title">
+          ¿Listo para dar<br>
+          el primer paso?
+        </h2>
+
+        <p class="section-desc">
+          Escríbenos y te ayudamos a empezar tu primer San.
+          La comunidad te espera.
+        </p>
       </div>
+
       <div class="contact-grid">
         <div class="contact-methods reveal reveal-delay-1">
           <a href="https://wa.me/584227159158" class="contact-method">
-            <div class="contact-method-icon"><svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-1.7-.9-2.9-1.5-4-3.5-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5 1.9.8 2.7.9 3.6.7.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3ZM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4a9.8 9.8 0 1 1 8.3 4.6ZM12 .2C5.5.2.2 5.5.2 12c0 2.1.5 4.1 1.6 5.9L.1 24l6.3-1.6A11.8 11.8 0 0 0 23.8 12C23.8 5.5 18.5.2 12 .2Z"/></svg></div>
-            <div><div class="contact-method-label">WhatsApp</div><div class="contact-method-value">+58 422-7159158</div></div>
+            <div class="contact-method-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-1.7-.9-2.9-1.5-4-3.5-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5 1.9.8 2.7.9 3.6.7.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3ZM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4a9.8 9.8 0 1 1 8.3 4.6ZM12 .2C5.5.2.2 5.5.2 12c0 2.1.5 4.1 1.6 5.9L.1 24l6.3-1.6A11.8 11.8 0 0 0 23.8 12C23.8 5.5 18.5.2 12 .2Z"/>
+              </svg>
+            </div>
+
+            <div>
+              <div class="contact-method-label">WhatsApp</div>
+              <div class="contact-method-value">+58 422-7159158</div>
+            </div>
           </a>
         </div>
+
         <div class="contact-form reveal reveal-delay-2">
-          <input type="text" placeholder="Tu nombre" required>
-          <input type="email" placeholder="Tu correo" required>
-          <input type="text" placeholder="Asunto">
-          <textarea placeholder="Cuéntanos qué necesitas..."></textarea>
+          <input type="text" placeholder="Tu nombre" aria-label="Tu nombre" required>
+          <input type="email" placeholder="Tu correo" aria-label="Tu correo" required>
+          <input type="text" placeholder="Asunto" aria-label="Asunto">
+          <textarea placeholder="Cuéntanos qué necesitas..." aria-label="Mensaje"></textarea>
           <button type="button" class="btn-submit">Enviar Mensaje 🐙</button>
         </div>
       </div>
     </div>
   </section>
-  <!-- ── PANEL DE CONTROL DEL PARTICIPANTE ── -->
-<section class="panel-control" id="panel" style="background: var(--bg-alt); padding: 80px 0;">
-  <div class="container" style="max-width: 900px; margin: 0 auto;">
-    <div class="reveal" style="text-align: center; margin-bottom: 40px;">
-      <span class="section-label"><span class="dot"></span> Mi Panel</span>
-      <h2 class="section-title" style="color: var(--text);">Bienvenido, <span style="color: var(--accent);">[Nombre del Usuario]</span></h2>
-      <p class="section-desc">Aquí tienes el control total de tu San. Transparencia y claridad en cada paso.</p>
-    </div>
 
-    <!-- Tarjeta de Identificación -->
-    <div style="background: var(--surface); border-radius: 20px; padding: 30px; border: 2px solid var(--accent); margin-bottom: 30px;">
-      <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
-        <div style="width: 80px; height: 80px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: bold; color: var(--bg);">
-          [Inicial]
+  <!-- PANEL DE CONTROL DEL PARTICIPANTE -->
+  <section class="panel-control san-panel" id="panel">
+    <div class="container">
+      <div class="reveal panel-heading">
+        <span class="section-label">
+          <span class="dot"></span>
+          Mi Panel
+        </span>
+
+        <h2 class="section-title">
+          Bienvenido,
+          <span style="color: var(--accent);">[Nombre del Usuario]</span>
+        </h2>
+
+        <p class="section-desc">
+          Aquí tienes el control total de tu San.
+          Transparencia y claridad en cada paso.
+        </p>
+      </div>
+
+      <!-- Tarjeta de identificación -->
+      <div class="panel-card panel-card-accent">
+        <div class="panel-profile">
+          <div class="panel-avatar">[Inicial]</div>
+
+          <div>
+            <h3>[Nombre Completo]</h3>
+            <p>
+              Rol:
+              <strong style="color: var(--accent);">Coordinador</strong>
+              · Estado:
+              <strong style="color: #16803e;">Activo</strong>
+            </p>
+          </div>
         </div>
+      </div>
+
+      <!-- Mi grupo -->
+      <div class="panel-card">
+        <h3>👥 Mi Grupo (10 Participantes)</h3>
+
+        <ul class="panel-members">
+          <li>
+            <span>✅</span>
+            <span>María Rodríguez</span>
+          </li>
+
+          <li>
+            <span>✅</span>
+            <span>José Pérez</span>
+          </li>
+
+          <li>
+            <span>⏳</span>
+            <span>Yolanda Méndez</span>
+          </li>
+
+          <!-- Agrega aquí los participantes restantes -->
+        </ul>
+      </div>
+
+      <!-- Mi turno y progreso -->
+      <div class="panel-card">
+        <h3>📅 Mi Turno</h3>
+
+        <p>
+          Tu turno es el número
+          <strong style="color: var(--accent);">5</strong>
+          de 10.
+        </p>
+
+        <p style="color: var(--text-2);">
+          Fecha estimada de cobro:
+          <strong style="color: var(--text);">15 de Diciembre, 2026</strong>
+        </p>
+
+        <div
+          class="panel-progress"
+          role="progressbar"
+          aria-label="Progreso del San"
+          aria-valuemin="0"
+          aria-valuemax="100"
+          aria-valuenow="30"
+        >
+          <div class="panel-progress-fill"></div>
+        </div>
+
+        <p class="panel-progress-caption">
+          Progreso: Semana 3 de 10.
+        </p>
+      </div>
+
+      <!-- Próxima ruleta -->
+      <div class="panel-card">
+        <h3>🎰 Próxima Ruleta</h3>
+
+        <p>
+          Fecha:
+          <strong>15 de Noviembre, 2026</strong>
+          a las <strong>8:00 PM</strong>.
+        </p>
+
+        <p style="color: var(--text-2);">
+          Sorteo en vivo por el grupo de WhatsApp.
+        </p>
+      </div>
+
+      <!-- Compartir y ganar -->
+      <div class="panel-card panel-card-accent">
+        <h3>📤 Comparte y Gana</h3>
+
+        <p style="color: var(--text-2); margin-bottom: 15px;">
+          Invita a tus amigos a unirse al San del Pulpo.
+          Por cada referido, ganas puntos y cupones para la Ruleta.
+        </p>
+
+        <div class="referral-controls">
+          <input
+            type="text"
+            class="referral-input"
+            value="https://san-pulpo.guia-digital.com/ref/[TU-CODIGO]"
+            aria-label="Enlace de referido del participante"
+            readonly
+          >
+
+          <button
+            type="button"
+            class="referral-button"
+            onclick="copiarEnlace(this)"
+          >
+            Copiar Enlace
+          </button>
+        </div>
+
+        <p style="margin-top: 15px;">
+          Tus referidos: <strong>3</strong>
+          · Tus puntos: <strong>150</strong>
+        </p>
+      </div>
+
+      <div class="panel-center">
+        <a
+          href="https://wa.me/584227159158"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn whatsapp-button"
+        >
+          📱 Contactar al Coordinador
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CIERRE DEL SAN: RULETA FINAL Y SOUVENIRS -->
+  <section class="cierre-san san-panel" id="cierre">
+    <div class="container panel-center">
+      <div class="reveal panel-heading">
+        <span class="section-label">
+          <span class="dot"></span>
+          Cierre del San
+        </span>
+
+        <h2 class="section-title">
+          ¡Felicidades!<br>
+          <span style="color: var(--accent);">El San ha terminado.</span>
+        </h2>
+
+        <p class="section-desc">
+          Has completado tu ciclo de 10 semanas.
+          Ahora es momento de celebrar y llevarte tu premio.
+        </p>
+      </div>
+
+      <div class="panel-card panel-card-accent">
+        <h3>🎰 La Ruleta Final</h3>
+
+        <p style="color: var(--text-2); margin-bottom: 20px;">
+          Participa por un premio especial del Pulpo.
+          ¡Cada semana hay una nueva oportunidad!
+        </p>
+
+        <!-- Representación visual; no realiza un sorteo -->
+        <div class="closing-wheel">
+          <span class="closing-wheel-label">GIRAR</span>
+        </div>
+
+        <p style="font-weight: 800;">
+          Premios: Gorra del Pulpo, Franela, Lapicero.
+        </p>
+      </div>
+
+      <div class="souvenirs-grid">
+        <div class="souvenir-card">
+          <div class="souvenir-icon">🧢</div>
+          <p>Gorra del Pulpo</p>
+        </div>
+
+        <div class="souvenir-card">
+          <div class="souvenir-icon">👕</div>
+          <p>Franela del Pulpo</p>
+        </div>
+
+        <div class="souvenir-card">
+          <div class="souvenir-icon">✏️</div>
+          <p>Lapicero del Pulpo</p>
+        </div>
+      </div>
+
+      <div style="margin-top: 30px;">
+        <a
+          href="https://wa.me/584227159158"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn whatsapp-button"
+        >
+          📱 Compartir mi experiencia
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PANEL DEL AFILIADO: SECCIÓN INDEPENDIENTE -->
+  <section class="panel-afiliado san-panel" id="panel-afiliado">
+    <div class="container">
+      <div class="reveal panel-heading">
+        <span class="section-label">
+          <span class="dot"></span>
+          Mi Ficha
+        </span>
+
+        <h2 class="section-title">
+          Bienvenido,
+          <span style="color: var(--accent);">[Nombre del Afiliado]</span>
+        </h2>
+
+        <p class="section-desc">
+          Aquí tienes tu información y la de tu grupo.
+          Transparencia total.
+        </p>
+      </div>
+
+      <!-- Tarjeta de presentación -->
+      <div class="panel-card panel-card-accent panel-profile">
+        <div class="panel-avatar panel-avatar-large">[Inicial]</div>
+
         <div>
-          <h3 style="color: var(--text); font-size: 1.5rem; margin: 0;">[Nombre Completo]</h3>
-          <p style="color: var(--text-2); margin: 5px 0;">Rol: <strong style="color: var(--accent);">Coordinador</strong> · Estado: <strong style="color: #25d366;">Activo</strong></p>
+          <h3>[Nombre Completo]</h3>
+
+          <p>
+            Rol:
+            <strong style="color: var(--accent);">Afiliado</strong>
+            · Estado:
+            <strong style="color: #16803e;">Activo</strong>
+          </p>
+
+          <p>
+            Negocio:
+            <strong style="color: var(--text);">[Nombre del Negocio]</strong>
+          </p>
         </div>
       </div>
-    </div>
 
-    <!-- Mi Grupo -->
-    <div style="background: var(--surface); border-radius: 20px; padding: 30px; border: 1px solid var(--surface); margin-bottom: 30px;">
-      <h3 style="color: var(--accent); margin-bottom: 20px;">👥 Mi Grupo (10 Participantes)</h3>
-      <ul style="list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px;">
-        <li style="display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,0.2); padding: 10px; border-radius: 10px;">
-          <span style="color: #25d366;">✅</span> <span style="color: var(--text);">María Rodríguez</span>
-        </li>
-        <li style="display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,0.2); padding: 10px; border-radius: 10px;">
-          <span style="color: #25d366;">✅</span> <span style="color: var(--text);">José Pérez</span>
-        </li>
-        <li style="display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,0.2); padding: 10px; border-radius: 10px;">
-          <span style="color: #fbbf24;">⏳</span> <span style="color: var(--text);">Yolanda Méndez</span>
-        </li>
-        <!-- Agrega los 10 participantes aquí -->
-      </ul>
-    </div>
+      <!-- Mi grupo -->
+      <div class="panel-card">
+        <h3>👥 Mi Grupo</h3>
 
-    <!-- Mi Turno y Progreso -->
-    <div style="background: var(--surface); border-radius: 20px; padding: 30px; border: 1px solid var(--surface); margin-bottom: 30px;">
-      <h3 style="color: var(--accent); margin-bottom: 20px;">📅 Mi Turno</h3>
-      <p style="color: var(--text);">Tu turno es el número <strong style="color: var(--accent);">5</strong> de 10.</p>
-      <p style="color: var(--text-2);">Fecha estimada de cobro: <strong style="color: var(--text);">15 de Diciembre, 2026</strong></p>
-      <div style="background: rgba(0,0,0,0.3); border-radius: 10px; height: 20px; margin-top: 15px; overflow: hidden;">
-        <div style="background: var(--accent); width: 30%; height: 100%;"></div>
+        <ul class="panel-members">
+          <li>
+            <span>✅</span>
+            <span>María Rodríguez</span>
+          </li>
+
+          <li>
+            <span>✅</span>
+            <span>José Pérez</span>
+          </li>
+
+          <li>
+            <span>⏳</span>
+            <span>Yolanda Méndez</span>
+          </li>
+        </ul>
       </div>
-      <p style="color: var(--text-2); font-size: 0.8rem; margin-top: 5px;">Progreso: Semana 3 de 10.</p>
-    </div>
 
-    <!-- Próxima Ruleta -->
-    <div style="background: var(--surface); border-radius: 20px; padding: 30px; border: 1px solid var(--surface); margin-bottom: 30px;">
-      <h3 style="color: var(--accent); margin-bottom: 20px;">🎰 Próxima Ruleta</h3>
-      <p style="color: var(--text);">Fecha: <strong>Viernes, 15 de Noviembre, 2026</strong> a las <strong>8:00 PM</strong>.</p>
-      <p style="color: var(--text-2);">Sorteo en vivo por el grupo de WhatsApp.</p>
-    </div>
+      <!-- Mis pagos -->
+      <div class="panel-card">
+        <h3>💳 Mis Pagos</h3>
 
-    <!-- Compartir y Ganar -->
-    <div style="background: var(--surface); border-radius: 20px; padding: 30px; border: 2px solid var(--accent); margin-bottom: 30px;">
-      <h3 style="color: var(--accent); margin-bottom: 20px;">📤 Comparte y Gana</h3>
-      <p style="color: var(--text-2); margin-bottom: 15px;">Invita a tus amigos a unirse al San del Pulpo. Por cada referido, ganas puntos y cupones para la Ruleta.</p>
-      <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-        <input type="text" value="https://san-pulpo.guia-digital.com/ref/[TU-CODIGO]" readonly style="flex: 1; min-width: 200px; padding: 10px; border-radius: 10px; border: 1px solid var(--accent); background: rgba(0,0,0,0.3); color: var(--text);">
-        <button onclick="copiarEnlace()" style="background: var(--accent); color: var(--bg); border: none; padding: 10px 20px; border-radius: 10px; font-weight: bold; cursor: pointer;">Copiar Enlace</button>
+        <div class="payment-row">
+          <span style="color: var(--text-2);">Pagado:</span>
+          <strong style="color: #16803e;">$30</strong>
+        </div>
+
+        <div class="payment-row">
+          <span style="color: var(--text-2);">Falta por pagar:</span>
+          <strong style="color: var(--text);">$70</strong>
+        </div>
+
+        <div class="payment-row">
+          <span style="color: var(--text-2);">Total del San:</span>
+          <strong>$100</strong>
+        </div>
+
+        <div
+          class="panel-progress panel-progress-small"
+          role="progressbar"
+          aria-label="Pagos completados"
+          aria-valuemin="0"
+          aria-valuemax="100"
+          aria-valuenow="30"
+        >
+          <div class="panel-progress-fill"></div>
+        </div>
       </div>
-      <p style="color: var(--text); margin-top: 15px;">Tus referidos: <strong>3</strong> · Tus puntos: <strong>150</strong></p>
-    </div>
 
-    <!-- Botón de Contacto -->
-    <div style="text-align: center;">
-      <a href="https://wa.me/584227159158" target="_blank" class="btn btn-primary" style="background: #25d366; color: white; padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: bold;">📱 Contactar al Coordinador</a>
-    </div>
-  </div>
-</section>
+      <!-- Compartir y ganar -->
+      <div class="panel-card panel-card-accent">
+        <h3>📤 Comparte y Gana</h3>
 
-<script>
-function copiarEnlace() {
-  const input = document.querySelector('input[readonly]');
-  input.select();
-  input.setSelectionRange(0, 99999);
-  navigator.clipboard.writeText(input.value).then(() => alert('✅ Enlace copiado'));
-}
-</script>
-  <!-- ── CIERRE DEL SAN: RULETA FINAL Y SOUVENIRS ── -->
-<section class="cierre-san" id="cierre" style="background: var(--bg-alt); padding: 80px 0;">
-  <div class="container" style="max-width: 900px; margin: 0 auto; text-align: center;">
-    <div class="reveal">
-      <span class="section-label"><span class="dot"></span> Cierre del San</span>
-      <h2 class="section-title" style="color: var(--text);">¡Felicidades! <br><span style="color: var(--accent);">El San ha terminado.</span></h2>
-      <p class="section-desc">Has completado tu ciclo de 10 semanas. Ahora es momento de celebrar y llevarte tu premio.</p>
-    </div>
+        <p style="color: var(--text-2); margin-bottom: 15px;">
+          Invita a tus amigos a unirse al San del Pulpo.
+          Por cada referido, ganas puntos y cupones para la Ruleta.
+        </p>
 
-    <!-- La Ruleta Final -->
-    <div style="background: var(--surface); border-radius: 20px; padding: 40px; border: 2px solid var(--accent); margin-bottom: 30px;">
-      <h3 style="color: var(--accent); margin-bottom: 20px;">🎰 La Ruleta Final</h3>
-      <p style="color: var(--text-2); margin-bottom: 20px;">Participa por un premio especial del Pulpo. ¡Cada semana hay una nueva oportunidad!</p>
-      <!-- Aquí va el componente de la ruleta (puede ser una imagen o un widget) -->
-      <div style="width: 200px; height: 200px; border-radius: 50%; background: conic-gradient(var(--accent) 0deg 45deg, var(--bg) 45deg 90deg, var(--accent) 90deg 135deg, var(--bg) 135deg 180deg, var(--accent) 180deg 225deg, var(--bg) 225deg 270deg, var(--accent) 270deg 315deg, var(--bg) 315deg 360deg); margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; border: 4px solid var(--text);">
-        <span style="background: var(--bg); padding: 10px 20px; border-radius: 30px; font-weight: bold; color: var(--accent);">GIRAR</span>
-      </div>
-      <p style="color: var(--text); font-weight: bold;">Premios: Gorra del Pulpo, Franela, Lapicero.</p>
-    </div>
-    <!-- ── PANEL DE CONTROL DEL AFILIADO ── -->
-<section class="panel-afiliado" id="panel-afiliado" style="background: var(--bg-alt); padding: 80px 0;">
-  <div class="container" style="max-width: 900px; margin: 0 auto;">
-    <div class="reveal" style="text-align: center; margin-bottom: 40px;">
-      <span class="section-label"><span class="dot"></span> Mi Ficha</span>
-      <h2 class="section-title" style="color: var(--text);">Bienvenido, <span style="color: var(--accent);">[Nombre del Afiliado]</span></h2>
-      <p class="section-desc">Aquí tienes tu información y la de tu grupo. Transparencia total.</p>
-    </div>
+        <div class="referral-controls">
+          <input
+            type="text"
+            class="referral-input"
+            value="https://san-pulpo.guia-digital.com/ref/[TU-CODIGO]"
+            aria-label="Enlace de referido del afiliado"
+            readonly
+          >
 
-    <!-- Tarjeta de Presentación -->
-    <div style="background: var(--surface); border-radius: 20px; padding: 30px; border: 2px solid var(--accent); margin-bottom: 30px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
-      <div style="width: 100px; height: 100px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; font-weight: bold; color: var(--bg);">
-        [Inicial]
-      </div>
-      <div>
-        <h3 style="color: var(--text); font-size: 1.8rem; margin: 0;">[Nombre Completo]</h3>
-        <p style="color: var(--text-2); margin: 5px 0;">Rol: <strong style="color: var(--accent);">Afiliado</strong> · Estado: <strong style="color: #25d366;">Activo</strong></p>
-        <p style="color: var(--text-2); margin: 5px 0;">Negocio: <strong style="color: var(--text);">[Nombre del Negocio]</strong></p>
+          <button
+            type="button"
+            class="referral-button"
+            onclick="copiarEnlace(this)"
+          >
+            Copiar Enlace
+          </button>
+        </div>
+
+        <p style="margin-top: 15px;">
+          Tus referidos: <strong>3</strong>
+          · Tus puntos: <strong>150</strong>
+        </p>
       </div>
     </div>
-
-    <!-- Mi Grupo -->
-    <div style="background: var(--surface); border-radius: 20px; padding: 30px; border: 1px solid var(--surface); margin-bottom: 30px;">
-      <h3 style="color: var(--accent); margin-bottom: 20px;">👥 Mi Grupo</h3>
-      <ul style="list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px;">
-        <li style="display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,0.2); padding: 10px; border-radius: 10px;">
-          <span style="color: #25d366;">✅</span> <span style="color: var(--text);">María Rodríguez</span>
-        </li>
-        <li style="display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,0.2); padding: 10px; border-radius: 10px;">
-          <span style="color: #25d366;">✅</span> <span style="color: var(--text);">José Pérez</span>
-        </li>
-        <li style="display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,0.2); padding: 10px; border-radius: 10px;">
-          <span style="color: #fbbf24;">⏳</span> <span style="color: var(--text);">Yolanda Méndez</span>
-        </li>
-      </ul>
-    </div>
-
-    <!-- Mis Pagos -->
-    <div style="background: var(--surface); border-radius: 20px; padding: 30px; border: 1px solid var(--surface); margin-bottom: 30px;">
-      <h3 style="color: var(--accent); margin-bottom: 20px;">💳 Mis Pagos</h3>
-      <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
-        <span style="color: var(--text-2);">Pagado:</span> <strong style="color: #25d366;">$30</strong>
-      </div>
-      <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
-        <span style="color: var(--text-2);">Falta por pagar:</span> <strong style="color: #fbbf24;">$70</strong>
-      </div>
-      <div style="display: flex; justify-content: space-between;">
-        <span style="color: var(--text-2);">Total del San:</span> <strong style="color: var(--text);">$100</strong>
-      </div>
-      <div style="background: rgba(0,0,0,0.3); border-radius: 10px; height: 10px; margin-top: 15px; overflow: hidden;">
-        <div style="background: #25d366; width: 30%; height: 100%;"></div>
-      </div>
-    </div>
-
-    <!-- Compartir y Ganar -->
-    <div style="background: var(--surface); border-radius: 20px; padding: 30px; border: 2px solid var(--accent); margin-bottom: 30px;">
-      <h3 style="color: var(--accent); margin-bottom: 20px;">📤 Comparte y Gana</h3>
-      <p style="color: var(--text-2); margin-bottom: 15px;">Invita a tus amigos a unirse al San del Pulpo. Por cada referido, ganas puntos y cupones para la Ruleta.</p>
-      <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-        <input type="text" value="https://san-pulpo.guia-digital.com/ref/[TU-CODIGO]" readonly style="flex: 1; min-width: 200px; padding: 10px; border-radius: 10px; border: 1px solid var(--accent); background: rgba(0,0,0,0.3); color: var(--text);">
-        <button onclick="copiarEnlace()" style="background: var(--accent); color: var(--bg); border: none; padding: 10px 20px; border-radius: 10px; font-weight: bold; cursor: pointer;">Copiar Enlace</button>
-      </div>
-      <p style="color: var(--text); margin-top: 15px;">Tus referidos: <strong>3</strong> · Tus puntos: <strong>150</strong></p>
-    </div>
-
-  </div>
-</section>
-
-    <!-- Souvenirs del Pulpo -->
-    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 20px;">
-      <div style="background: var(--surface); border-radius: 15px; padding: 20px; border: 1px solid var(--accent);">
-        <div style="font-size: 3rem;">🧢</div>
-        <p style="color: var(--text); font-weight: bold;">Gorra del Pulpo</p>
-      </div>
-      <div style="background: var(--surface); border-radius: 15px; padding: 20px; border: 1px solid var(--accent);">
-        <div style="font-size: 3rem;">👕</div>
-        <p style="color: var(--text); font-weight: bold;">Franela del Pulpo</p>
-      </div>
-      <div style="background: var(--surface); border-radius: 15px; padding: 20px; border: 1px solid var(--accent);">
-        <div style="font-size: 3rem;">✏️</div>
-        <p style="color: var(--text); font-weight: bold;">Lapicero del Pulpo</p>
-      </div>
-    </div>
-
-    <!-- Botón de Compartir -->
-    <div style="margin-top: 30px;">
-      <a href="https://wa.me/584227159158" target="_blank" class="btn btn-primary" style="background: #25d366; color: white; padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: bold;">📱 Compartir mi experiencia</a>
-    </div>
-  </div>
-</section>
+  </section>
 
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
       <div class="footer-socials">
-        <a href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
-        <a href="#" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
-        <a href="#" aria-label="TikTok"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+        <a href="#" aria-label="Facebook">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+          </svg>
+        </a>
+
+        <a href="#" aria-label="Instagram">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+        </a>
+
+        <a href="#" aria-label="TikTok">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
+          </svg>
+        </a>
       </div>
-      <p class="footer-text">Hecho con <span>♥</span> para Venezuela · © 2026 San del Pulpo</p>
+
+      <p class="footer-text">
+        Hecho con <span>♥</span> para Venezuela
+        · © 2026 San del Pulpo
+      </p>
     </div>
   </footer>
-  
+
+  <!-- JavaScript original de navegación y animaciones -->
   <script src="tooplate-2169-hustle-bee.js"></script>
+
+  <!-- Copiar el enlace del panel correspondiente -->
+  <script>
+    async function copiarEnlace(boton) {
+      const contenedor = boton.closest('.referral-controls');
+      const input = contenedor
+        ? contenedor.querySelector('.referral-input')
+        : null;
+
+      if (!input) {
+        return;
+      }
+
+      try {
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(input.value);
+        } else {
+          input.focus();
+          input.select();
+          input.setSelectionRange(0, input.value.length);
+
+          const copiado = document.execCommand('copy');
+
+          if (!copiado) {
+            throw new Error('No se pudo copiar automáticamente');
+          }
+        }
+
+        alert('Enlace copiado');
+      } catch (error) {
+        input.focus();
+        input.select();
+        input.setSelectionRange(0, input.value.length);
+
+        alert(
+          'No se pudo copiar automáticamente. ' +
+          'El enlace quedó seleccionado para que puedas copiarlo.'
+        );
+      }
+    }
+  </script>
+
 </body>
 </html>
