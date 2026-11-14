@@ -1441,7 +1441,66 @@
       </div>
     </div>
   </section>
+<!-- ── PANEL DE CONTROL DEL ORGANIZADOR ── -->
+<section class="panel-control" id="panel-organizador" style="background: var(--bg-alt); padding: 80px 0;">
+  <div class="container" style="max-width: 900px; margin: 0 auto;">
+    
+    <div class="reveal" style="text-align: center; margin-bottom: 40px;">
+      <span class="section-label"><span class="dot"></span> Mi Panel SAI</span>
+      <h2 class="section-title" style="color: var(--text);">Bienvenido, <span style="color: var(--accent);">[Nombre del Organizador]</span></h2>
+      <p class="section-desc">Tu centro de control. Aquí gestionas tu grupo, tus pagos y tus comisiones.</p>
+    </div>
 
+    <!-- Tarjeta de Resumen (Lo primero que ven los ojos) -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 30px;">
+      <div style="background: var(--surface); border-radius: 20px; padding: 20px; border: 1px solid var(--surface); text-align: center;">
+        <p style="color: var(--text-2); margin: 0 0 10px 0; font-size: 0.9rem;">Mi Grupo</p>
+        <h3 style="color: var(--accent); margin: 0; font-size: 2rem;">10/10</h3>
+        <p style="color: #25d366; margin: 5px 0 0 0; font-size: 0.8rem;">✅ Grupo Completo</p>
+      </div>
+      <div style="background: var(--surface); border-radius: 20px; padding: 20px; border: 2px solid var(--accent); text-align: center;">
+        <p style="color: var(--text-2); margin: 0 0 10px 0; font-size: 0.9rem;">Mis Comisiones</p>
+        <h3 style="color: var(--accent); margin: 0; font-size: 2rem;">$7.00</h3>
+        <p style="color: var(--text-2); margin: 5px 0 0 0; font-size: 0.8rem;">Por ronda</p>
+      </div>
+      <div style="background: var(--surface); border-radius: 20px; padding: 20px; border: 1px solid var(--surface); text-align: center;">
+        <p style="color: var(--text-2); margin: 0 0 10px 0; font-size: 0.9rem;">Estado del Turno</p>
+        <h3 style="color: var(--text); margin: 0; font-size: 1.2rem;">Turno 1 (Cobrado)</h3>
+        <p style="color: var(--accent); margin: 5px 0 0 0; font-size: 0.8rem;">⭐ Voto de Confianza</p>
+      </div>
+    </div>
+
+    <!-- Lista de Miembros -->
+    <div style="background: var(--surface); border-radius: 20px; padding: 30px; border: 1px solid var(--surface);">
+      <h3 style="color: var(--accent); margin-bottom: 20px;">👥 Control de Mi Grupo</h3>
+      <ul style="list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 15px;">
+        
+        <li style="display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,0.2); padding: 12px; border-radius: 10px; border-left: 3px solid #25d366;">
+          <span>✅</span> 
+          <div><p style="color: var(--text); margin: 0; font-weight: bold;">María Rodríguez</p><p style="color: var(--text-2); margin: 0; font-size: 0.8rem;">Pagó - Semana 3</p></div>
+        </li>
+        
+        <li style="display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,0.2); padding: 12px; border-radius: 10px; border-left: 3px solid #25d366;">
+          <span>✅</span> 
+          <div><p style="color: var(--text); margin: 0; font-weight: bold;">José Pérez</p><p style="color: var(--text-2); margin: 0; font-size: 0.8rem;">Pagó - Semana 3</p></div>
+        </li>
+
+        <li style="display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,0.2); padding: 12px; border-radius: 10px; border-left: 3px solid #fbbf24;">
+          <span>⏳</span> 
+          <div><p style="color: var(--text); margin: 0; font-weight: bold;">Yolanda Méndez</p><p style="color: var(--text-2); margin: 0; font-size: 0.8rem;">Pendiente - Hoy vence</p></div>
+        </li>
+
+         <li style="display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,0.2); padding: 12px; border-radius: 10px; border-left: 3px solid #ef4444;">
+          <span>❌</span> 
+          <div><p style="color: var(--text); margin: 0; font-weight: bold;">Pedro Pérez</p><p style="color: var(--text-2); margin: 0; font-size: 0.8rem;">En Mora - Multa aplicada</p></div>
+        </li>
+
+      </ul>
+      <button style="margin-top: 20px; background: var(--accent); color: var(--bg); border: none; padding: 12px 25px; border-radius: 30px; font-weight: bold; cursor: pointer; width: 100%;">Enviar Recordatorio Masivo 🚀</button>
+    </div>
+
+  </div>
+</section>
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
