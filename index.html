@@ -203,9 +203,7 @@
         </div>
       </div>
     </div>
-  </section>
-
-  <!-- BENEFICIOS -->
+  </section>  <!-- BENEFICIOS -->
   <section class="skills" id="skills">
     <div class="container">
       <div class="skills-header reveal">
@@ -213,12 +211,14 @@
         <h2 class="section-title">Todo lo que ganas con el Pulpo.</h2>
         <p class="section-desc">Cada función está pensada para que ahorrar sea seguro, transparente y en equipo.</p>
       </div>
+      
       <div class="skills-bento">
         
         <div class="skill-bento-card reveal-scale">
           <div>
             <span class="skill-bento-name">Turno Garantizado</span>
             <span class="skill-bento-desc">El coordinador recibe la primera tanda como voto de confianza, pero con un depósito de garantía que respalda al grupo. Si alguien falla o intenta irse con la plata, el sistema lo detecta, lo marca en la lista negra y activa el fondo con su garantía. Aquí no entra cualquiera, aquí entran personas que califican.</span>
+            <button class="btn-leer-mas" onclick="toggleTexto(this)">Leer más ↓</button>
           </div>
           <span class="skill-bento-level">Seguro</span>
         </div>
@@ -227,6 +227,7 @@
           <div>
             <span class="skill-bento-name">Comunidad Verificada</span>
             <span class="skill-bento-desc">Validamos la identidad de cada participante (cédula y selfie). Sabes que tu grupo está formado por personas reales, con ingresos comprobables y comprometidas. Adiós a los fantasmas y a los morosos.</span>
+            <button class="btn-leer-mas" onclick="toggleTexto(this)">Leer más ↓</button>
           </div>
           <span class="skill-bento-level">Confiable</span>
         </div>
@@ -235,6 +236,7 @@
           <div>
             <span class="skill-bento-name">Ruleta del Pulpo</span>
             <span class="skill-bento-desc">Ahorrar con nosotros sí tiene premio. No es un juego de azar, es una recompensa por tu disciplina. Cada semana participas por cestas de víveres, gorras y franelas del San del Pulpo. ¡Ganas mientras ahorras!</span>
+            <button class="btn-leer-mas" onclick="toggleTexto(this)">Leer más ↓</button>
           </div>
           <span class="skill-bento-level">Premios</span>
         </div>
@@ -243,6 +245,7 @@
           <div>
             <span class="skill-bento-name">Coordinadores en Red</span>
             <span class="skill-bento-desc">Tú pones la comunidad, nosotros la tecnología. Conviértete en un Organizador SAI: gestiona tu propio grupo, recibe comisiones por tu gestión y asegura tu primera tanda. El sistema te da la herramienta, tú das la cara.</span>
+            <button class="btn-leer-mas" onclick="toggleTexto(this)">Leer más ↓</button>
           </div>
           <span class="skill-bento-level">Liderazgo</span>
         </div>
@@ -251,6 +254,7 @@
           <div>
             <span class="skill-bento-name">Pagos Seguros</span>
             <span class="skill-bento-desc">Paga como te quede fácil: Pago Móvil o Binance. El sistema te avisa cuándo toca, tú registras el pago y el sistema lo valida al instante. Sin efectivo, sin enredos, sin riesgo de perder el dinero en la calle.</span>
+            <button class="btn-leer-mas" onclick="toggleTexto(this)">Leer más ↓</button>
           </div>
           <span class="skill-bento-level">Flexible</span>
         </div>
@@ -259,12 +263,14 @@
           <div>
             <span class="skill-bento-name">Soporte 24/7</span>
             <span class="skill-bento-desc">No estás solo en el camino. El Pulpito Cordial y nuestro equipo están disponibles para responder tus dudas, ayudarte con los pagos o mediar en tu grupo. La comunidad te respalda.</span>
+            <button class="btn-leer-mas" onclick="toggleTexto(this)">Leer más ↓</button>
           </div>
           <span class="skill-bento-level">Atención</span>
         </div>
 
       </div>
     </div>
+  </section>
   </section>
 
   <!-- HISTORIAS -->
@@ -582,21 +588,19 @@
   <script src="tooplate-2169-hustle-bee.js"></script>
 
   <script>
-    async function copiarEnlace(boton) {
-      const contenedor = boton.closest('.referral-controls');
-      const input = contenedor ? contenedor.querySelector('.referral-input') : null;
-      if (!input) return;
-      try {
-        if (navigator.clipboard && window.isSecureContext) {
-          await navigator.clipboard.writeText(input.value);
-        } else {
-          input.focus(); input.select(); input.setSelectionRange(0, input.value.length);
-          document.execCommand('copy');
-        }
-        alert('Enlace copiado');
-      } catch (error) {
-        input.focus(); input.select(); input.setSelectionRange(0, input.value.length);
-        alert('No se pudo copiar automáticamente. El enlace quedó seleccionado.');
+    function toggleTexto(boton) {
+      // Busca el texto que está justo antes del botón
+      const texto = boton.previousElementSibling;
+      
+      // Si el texto tiene la clase 'active', se la quitamos (se oculta)
+      // Si no la tiene, se la ponemos (se muestra)
+      texto.classList.toggle('active');
+      
+      // Cambia el texto del botón dependiendo del estado
+      if (texto.classList.contains('active')) {
+        boton.innerHTML = 'Leer menos ↑';
+      } else {
+        boton.innerHTML = 'Leer más ↓';
       }
     }
   </script>
