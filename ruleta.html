@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ruleta MotoSan</title>
+  <style>
+    body {
+      background-color: #0b1c3a;
+      color: #ffffff;
+      font-family: 'Nunito', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      overflow: hidden;
+    }
+    h1 {
+      color: #fbbf24;
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    .subtitle {
+      color: #a0aec0;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    .wheel-container {
+      position: relative;
+      width: 350px;
+      height: 350px;
+      margin-bottom: 40px;
+    }
+    .wheel {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      border: 8px solid #fbbf24;
+      box-shadow: 0 0 20px rgba(251, 191, 36, 0.5);
+      position: relative;
+      overflow: hidden;
+      transition: transform 4s cubic-bezier(0.17, 0.67, 0.12, 0.99);
+      background: conic-gradient(
+        #1e3a8a 0deg 36deg,
+        #10b981 36deg 72deg,
+        #1e3a8a 72deg 108deg,
+        #10b981 108deg 144deg,
+        #1e3a8a 144deg 180deg,
+        #10b981 180deg 216deg,
+        #1e3a8a 216deg 252deg,
+        #10b981 252deg 288deg,
+        #1e3a8a 288deg 324deg,
+        #10b981 324deg 360deg
+      );
+    }
+    .wheel::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 20px;
+      height: 20px;
+      background: #fbbf24;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 10;
+    }
+    .wheel-pointer {
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 20px solid transparent;
+      border-right: 20px solid transparent;
+      border-top: 40px solid #fbbf24;
+      z-index: 20;
+      filter: drop-shadow(0 4px 6px rgba(0,0,0,0.5));
+    }
+    .wheel-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+    .text-item {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform-origin: 0 0;
+      font-weight: bold;
+      color: #fff;
+      font-size: 0.8rem;
+      white-space: nowrap;
+    }
+    .btn-spin {
+      background-color: #fbbf24;
+      color: #0b1c3a;
+      border: none;
+      padding: 15px 40px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(251, 191, 36, 0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-spin:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(251, 191, 36, 0.6);
+    }
+    .btn-spin:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    .winner-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      z-index: 100;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    .winner-modal.active {
+      display: flex;
+    }
+    .winner-card {
+      background: #ffffff;
+      color: #0b1c3a;
+      padding: 30px;
+      border-radius: 20px;
+      text-align: center;
+      max-width: 400px;
+      width: 90%;
+      animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    @keyframes popIn {
+      0% { transform: scale(0.5); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .winner-card h2 {
+      color: #10b981;
+      margin-top: 0;
+    }
+    .winner-card p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+    .winner-card .prize {
+      font-weight: bold;
+      color: #fbbf24;
+      font-size: 1.5rem;
+      display: block;
+      margin: 15px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎡 Ruleta MotoSan</h1>
+  <p class="subtitle">¡La suerte del Pulpo está de tu lado!</p>
+
+  <div class="wheel-container">
+    <div class="wheel-pointer"></div>
+    <div class="wheel" id="wheel"></div>
+  </div>
+
+  <button class="btn-spin" id="spinBtn">¡Girar la Ruleta!</button>
+
+  <div class="winner-modal" id="winnerModal">
+    <div class="winner-card">
+      <h2>¡Felicidades!</h2>
+      <p>El motorizado ganador del turno es:</p>
+      <span class="prize" id="winnerName">María Rodríguez</span>
+      <p>Además, el premio de esta semana es:</p>
+      <strong id="winnerPrize" style="color:#0b1c3a; font-size: 1.2rem;">Cesta de Comida 🛒</strong>
+      <br><br>
+      <button class="btn-spin" onclick="document.getElementById('winnerModal').classList.remove('active')">¡Seguir Ahorrando!</button>
+    </div>
+  </div>
+
+  <script>
+    const wheel = document.getElementById('wheel');
+    const spinBtn = document.getElementById('spinBtn');
+    const winnerModal = document.getElementById('winnerModal');
+    const winnerName = document.getElementById('winnerName');
+    const winnerPrize = document.getElementById('winnerPrize');
+
+    // Nombres de los participantes (Puedes cambiarlos por los motorizados reales)
+    const participants = [
+      "Juan Pérez", "Carlos Ruiz", "Pedro Gómez", "Luis Martínez", 
+      "José Rodríguez", "Miguel Torres", "Andrés Silva", "Diego López", 
+      "Yolanda Méndez", "María Rodríguez"
+    ];
+
+    // Premios (Cesta de comida o souvenirs)
+    const prizes = [
+      "Cesta de Comida 🛒", "Gorra MotoSan 🧢", "Franela MotoSan 👕", 
+      "Lapicero MotoSan 🖊️", "Bono de $5 💵", "Plátanos al Mayor 🍌"
+    ];
+
+    let currentRotation = 0;
+    let isSpinning = false;
+
+    // Dibujar los nombres en la ruleta
+    function drawWheel() {
+      const anglePerSegment = 360 / participants.length;
+      participants.forEach((name, index) => {
+        const textElement = document.createElement('div');
+        textElement.className = 'text-item';
+        textElement.style.transform = `rotate(${index * anglePerSegment + (anglePerSegment / 2)}deg) translate(60px, -10px)`;
+        textElement.innerText = name;
+        wheel.appendChild(textElement);
+      });
+    }
+
+    // Función para girar
+    spinBtn.addEventListener('click', () => {
+      if (isSpinning) return;
+      isSpinning = true;
+      spinBtn.disabled = true;
+
+      // Girar al azar entre 5 y 8 vueltas completas
+      const randomSpins = Math.floor(Math.random() * 3) + 5; 
+      const extraDegrees = Math.floor(Math.random() * 360);
+      
+      // Calcular la rotación total (asegurando que avance)
+      const totalRotation = (randomSpins * 360) + extraDegrees;
+      currentRotation += totalRotation;
+      
+      wheel.style.transform = `rotate(${currentRotation}deg)`;
+
+      // Después de 4 segundos (cuando termina la animación), mostrar el ganador
+      setTimeout(() => {
+        // Calcular qué participante cayó en el puntero (arriba)
+        // El puntero está en 0 grados (arriba). 
+        // Como el CSS rota en sentido horario, restamos la rotación actual
+        const normalizedRotation = currentRotation % 360;
+        const anglePerSegment = 360 / participants.length;
+        
+        // El ángulo del puntero es 0 (o 360). 
+        // Buscamos el índice que corresponde a esa posición.
+        let index = Math.round((360 - normalizedRotation) / anglePerSegment) % participants.length;
+        if (index < 0) index += participants.length;
+
+        // Elegir un premio al azar (siempre gana algo)
+        const randomPrize = prizes[Math.floor(Math.random() * prizes.length)];
+
+        // Mostrar el resultado
+        winnerName.innerText = participants[index];
+        winnerPrize.innerText = randomPrize;
+        
+        winnerModal.classList.add('active');
+        spinBtn.disabled = false;
+        isSpinning = false;
+      }, 4000); // 4 segundos = duración de la animación CSS
+    });
+
+    // Inicializar
+    drawWheel();
+  </script>
+</body>
+</html>
